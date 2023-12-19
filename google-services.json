@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "223514486202",
+    "project_id": "projectx-baaee",
+    "storage_bucket": "projectx-baaee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223514486202:android:6b979cd514bc8499e26983",
+        "android_client_info": {
+          "package_name": "com.app.raoacademy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "223514486202-a1ptnqt6hbuq2naub0ersfautt93om1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaT3pY3Ubfp8_MeZoCXEv_pxyT1e0PUDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "223514486202-a1ptnqt6hbuq2naub0ersfautt93om1r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "223514486202-htgl7667rj7j16jnehu347n0t2gttuo3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.raoacademy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
