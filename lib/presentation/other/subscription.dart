@@ -455,7 +455,7 @@ class Subcription extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            'Max Coins: ${Provider.of<HomeProvider>(context, listen: false).subscriptionEntity.subscriptions![i].maxReedemableCoins}',
+                                            'Max Coins: ${Provider.of<HomeProvider>(context, listen: false).subscriptionEntity.subscriptions![i].maxReedemableCoins ?? 0}',
                                             style: TextStyle(
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.w600,
@@ -475,7 +475,7 @@ class Subcription extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            'Validity: ${Provider.of<HomeProvider>(context, listen: false).subscriptionEntity.subscriptions![i].validity}',
+                                            'Validity: ${Provider.of<HomeProvider>(context, listen: false).subscriptionEntity.subscriptions![i].validity} Month',
                                             style: TextStyle(
                                               fontSize: 12.sp,
                                               fontWeight: FontWeight.w600,

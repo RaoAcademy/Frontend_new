@@ -15,7 +15,7 @@ class Subscriptions {
   Subscriptions.fromJson(Map<String, dynamic> json) {
     comment = json['comment'] as String?;
     gstAmount = json['gstAmount'] as num?;
-    maxReedemableCoins = json['maxReedemableCoins'] as num?;
+    maxReedemableCoins = json['maxRedeemableCoins'] as num?;
     numberOfTests = json['numberOfTests'] as num?;
     price = json['price'] as num?;
     strikedPrice = json['strikedPrice'] as num?;
@@ -42,7 +42,7 @@ class Subscriptions {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['comment'] = comment;
     data['gstAmount'] = gstAmount;
-    data['maxReedemableCoins'] = maxReedemableCoins;
+    data['maxRedeemableCoins'] = maxReedemableCoins;
     data['numberOfTests'] = numberOfTests;
     data['price'] = price;
     data['strikedPrice'] = strikedPrice;
