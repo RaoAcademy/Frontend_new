@@ -44,12 +44,12 @@ class _SplashScreenState extends State<SplashScreen> {
              await InAppUpdate.performImmediateUpdate();
 
           }else{
-            Provider.of<AuthProvider>(context, listen: false)
+            Provider.of<AuthAppProvider>(context, listen: false)
                 .getUserId()
                 .then((value) {
               if (value != 0) {
-                Provider.of<AuthProvider>(context, listen: false).fprofile();
-                Provider.of<AuthProvider>(context, listen: false)
+                Provider.of<AuthAppProvider>(context, listen: false).fprofile();
+                Provider.of<AuthAppProvider>(context, listen: false)
                     .fprofileDetailed()
                     .then((_) {
                   gotoHomePage(context).onError((error, stackTrace) {
@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   await handleError(error);
                 });
               } else {
-                context.read<AuthProvider>().getInstallKey().then((value) {
+                context.read<AuthAppProvider>().getInstallKey().then((value) {
                   if (value != 1) {
                     gotoSplashScreen(context);
                   } else {
@@ -82,18 +82,18 @@ class _SplashScreenState extends State<SplashScreen> {
                 (route) => false,
               ); */
               }
-              context.read<AuthProvider>().setOnceInstallKey();
+              context.read<AuthAppProvider>().setOnceInstallKey();
             });
           }
 
 
         } else {
-          Provider.of<AuthProvider>(context, listen: false)
+          Provider.of<AuthAppProvider>(context, listen: false)
               .getUserId()
               .then((value) {
             if (value != 0) {
-              Provider.of<AuthProvider>(context, listen: false).fprofile();
-              Provider.of<AuthProvider>(context, listen: false)
+              Provider.of<AuthAppProvider>(context, listen: false).fprofile();
+              Provider.of<AuthAppProvider>(context, listen: false)
                   .fprofileDetailed()
                   .then((_) {
                 gotoHomePage(context).onError((error, stackTrace) {
@@ -105,7 +105,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 await handleError(error);
               });
             } else {
-              context.read<AuthProvider>().getInstallKey().then((value) {
+              context.read<AuthAppProvider>().getInstallKey().then((value) {
                 if (value != 1) {
                   gotoSplashScreen(context);
                 } else {
@@ -126,7 +126,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 (route) => false,
               ); */
             }
-            context.read<AuthProvider>().setOnceInstallKey();
+            context.read<AuthAppProvider>().setOnceInstallKey();
           });
         }
       });

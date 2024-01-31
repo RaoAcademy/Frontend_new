@@ -31,20 +31,20 @@ class _BookmarksState extends State<Bookmarks> {
   @override
   void initState() {
     _subjectList.clear();
-    Provider.of<AuthProvider>(context, listen: false)
+    Provider.of<AuthAppProvider>(context, listen: false)
         .bookmarkTestEntity
         .subjects
         ?.forEach((element) {
       _subjectList.add(element);
     });
-    Provider.of<AuthProvider>(context, listen: false).fbookmarkTest(
+    Provider.of<AuthAppProvider>(context, listen: false).fbookmarkTest(
         subjectId: Provider.of<TestProvider>(context, listen: false).subjectId);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<AuthProvider>(context);
+    Provider.of<AuthAppProvider>(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -126,12 +126,12 @@ class _BookmarksState extends State<Bookmarks> {
                                 reload: true);
                         if (_subjectList[value.keys.first].id != 0) {
                           if (_showTest) {
-                            Provider.of<AuthProvider>(context, listen: false)
+                            Provider.of<AuthAppProvider>(context, listen: false)
                                 .fbookmarkTest(
                                     subjectId:
                                         _subjectList[value.keys.first].id);
                           } else {
-                            Provider.of<AuthProvider>(context, listen: false)
+                            Provider.of<AuthAppProvider>(context, listen: false)
                                 .fbookmarkQuestion(
                                     subjectId:
                                         _subjectList[value.keys.first].id);
@@ -227,7 +227,7 @@ class _BookmarksState extends State<Bookmarks> {
                         switch (val.keys.first) {
                           case 0:
                             _showTest = true;
-                            Provider.of<AuthProvider>(context, listen: false)
+                            Provider.of<AuthAppProvider>(context, listen: false)
                                 .fbookmarkTest(
                                     subjectId: Provider.of<TestProvider>(
                                             context,
@@ -235,7 +235,7 @@ class _BookmarksState extends State<Bookmarks> {
                                         .subjectId)
                                 .then((value) {
                               _subjectList.clear();
-                              Provider.of<AuthProvider>(context, listen: false)
+                              Provider.of<AuthAppProvider>(context, listen: false)
                                   .bookmarkTestEntity
                                   .subjects
                                   ?.forEach((element) {
@@ -247,7 +247,7 @@ class _BookmarksState extends State<Bookmarks> {
                             break;
                           default:
                             _showTest = false;
-                            Provider.of<AuthProvider>(context, listen: false)
+                            Provider.of<AuthAppProvider>(context, listen: false)
                                 .fbookmarkQuestion(
                                     subjectId: Provider.of<TestProvider>(
                                             context,
@@ -255,7 +255,7 @@ class _BookmarksState extends State<Bookmarks> {
                                         .subjectId)
                                 .then((value) {
                               _subjectList.clear();
-                              Provider.of<AuthProvider>(context, listen: false)
+                              Provider.of<AuthAppProvider>(context, listen: false)
                                   .bookmarkQuestionsEntity
                                   .subjects
                                   ?.forEach((element) {
@@ -275,7 +275,7 @@ class _BookmarksState extends State<Bookmarks> {
                 padding: EdgeInsets.only(top: 24.h),
                 child: ScrollConfiguration(
                   behavior: MyBehavior(),
-                  child: _showTest ? Provider.of<AuthProvider>(context, listen: false)
+                  child: _showTest ? Provider.of<AuthAppProvider>(context, listen: false)
                       .bookmarkTestEntity
                       .userTests!.isEmpty ? Center(
                     child: Column(
@@ -298,11 +298,11 @@ class _BookmarksState extends State<Bookmarks> {
                     ),
                   )  : ListView.builder(
                     itemCount: _showTest
-                        ? Provider.of<AuthProvider>(context, listen: false)
+                        ? Provider.of<AuthAppProvider>(context, listen: false)
                             .bookmarkTestEntity
                             .userTests
                             ?.length
-                        : Provider.of<AuthProvider>(context, listen: false)
+                        : Provider.of<AuthAppProvider>(context, listen: false)
                             .bookmarkQuestionsEntity
                             .questions
                             ?.length,
@@ -369,7 +369,7 @@ class _BookmarksState extends State<Bookmarks> {
                                               if (_showTest)
                                                 LoopsImage(
                                                     path: (Provider.of<
-                                                                    AuthProvider>(
+                                                                    AuthAppProvider>(
                                                                 context,
                                                                 listen: false)
                                                             .bookmarkTestEntity
@@ -397,14 +397,14 @@ class _BookmarksState extends State<Bookmarks> {
                                                 flex: 8,
                                                 child: Text(
                                                   _showTest
-                                                      ? Provider.of<AuthProvider>(
+                                                      ? Provider.of<AuthAppProvider>(
                                                                   context,
                                                                   listen: false)
                                                               .bookmarkTestEntity
                                                               .userTests![index]
                                                               .text1 ??
                                                           ''
-                                                      : (Provider.of<AuthProvider>(
+                                                      : (Provider.of<AuthAppProvider>(
                                                                   context,
                                                                   listen: false)
                                                               .bookmarkQuestionsEntity
@@ -426,7 +426,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                 flex: 3,
                                                 child: _showTest
                                                     ? Text(
-                                                        Provider.of<AuthProvider>(
+                                                        Provider.of<AuthAppProvider>(
                                                                     context,
                                                                     listen:
                                                                         false)
@@ -469,7 +469,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                             ),
                                                             child: Center(
                                                               child: Text(
-                                                                Provider.of<AuthProvider>(
+                                                                Provider.of<AuthAppProvider>(
                                                                             context,
                                                                             listen:
                                                                                 false)
@@ -512,7 +512,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                             ),
                                                             child: Center(
                                                               child: Text(
-                                                                (Provider.of<AuthProvider>(
+                                                                (Provider.of<AuthAppProvider>(
                                                                             context,
                                                                             listen:
                                                                                 false)
@@ -554,13 +554,13 @@ class _BookmarksState extends State<Bookmarks> {
                                                           _showTest
                                                               ? Text(
                                                                   _showTest
-                                                                      ? Provider.of<AuthProvider>(context, listen: false)
+                                                                      ? Provider.of<AuthAppProvider>(context, listen: false)
                                                                               .bookmarkTestEntity
                                                                               .userTests![
                                                                                   index]
                                                                               .text3 ??
                                                                           ''
-                                                                      : (Provider.of<AuthProvider>(context, listen: false)
+                                                                      : (Provider.of<AuthAppProvider>(context, listen: false)
                                                                               .bookmarkQuestionsEntity
                                                                               .questions?[index]
                                                                               .format ??
@@ -589,7 +589,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                                 width: 5.w,
                                                               ),
                                                               Text(
-                                                                Provider.of<AuthProvider>(
+                                                                Provider.of<AuthAppProvider>(
                                                                             context,
                                                                             listen:
                                                                                 false)
@@ -620,7 +620,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                           child:
                                                               LinearProgressIndicator(
                                                             value: _showTest
-                                                                ? (Provider.of<AuthProvider>(context,
+                                                                ? (Provider.of<AuthAppProvider>(context,
                                                                                 listen: false)
                                                                             .bookmarkTestEntity
                                                                             .userTests![index]
@@ -654,7 +654,7 @@ class _BookmarksState extends State<Bookmarks> {
                                   ),
                                 ),
                                 if (_showTest &&
-                                    Provider.of<AuthProvider>(context,
+                                    Provider.of<AuthAppProvider>(context,
                                                 listen: false)
                                             .bookmarkTestEntity
                                             .userTests![index]
@@ -672,7 +672,7 @@ class _BookmarksState extends State<Bookmarks> {
                                       ),
                                       child: Center(
                                         child: Text(
-                                          Provider.of<AuthProvider>(context,
+                                          Provider.of<AuthAppProvider>(context,
                                                   listen: false)
                                               .bookmarkTestEntity
                                               .userTests![index]
@@ -687,7 +687,7 @@ class _BookmarksState extends State<Bookmarks> {
                                     ),
                                   ),
                                 if (_showTest &&
-                                    Provider.of<AuthProvider>(context,
+                                    Provider.of<AuthAppProvider>(context,
                                                 listen: false)
                                             .bookmarkTestEntity
                                             .userTests![index]
@@ -706,7 +706,7 @@ class _BookmarksState extends State<Bookmarks> {
                                       ),
                                       child: Center(
                                         child: Text(
-                                          Provider.of<AuthProvider>(context,
+                                          Provider.of<AuthAppProvider>(context,
                                                   listen: false)
                                               .bookmarkTestEntity
                                               .userTests![index]
@@ -726,7 +726,7 @@ class _BookmarksState extends State<Bookmarks> {
                         ],
                       );
                     },
-                  ) : Provider.of<AuthProvider>(context, listen: false)
+                  ) : Provider.of<AuthAppProvider>(context, listen: false)
                       .bookmarkQuestionsEntity
                       .questions!.isEmpty ? Center(
                     child: Column(
@@ -749,11 +749,11 @@ class _BookmarksState extends State<Bookmarks> {
                     ),
                   ): ListView.builder(
                     itemCount: _showTest
-                        ? Provider.of<AuthProvider>(context, listen: false)
+                        ? Provider.of<AuthAppProvider>(context, listen: false)
                         .bookmarkTestEntity
                         .userTests
                         ?.length
-                        : Provider.of<AuthProvider>(context, listen: false)
+                        : Provider.of<AuthAppProvider>(context, listen: false)
                         .bookmarkQuestionsEntity
                         .questions
                         ?.length,
@@ -820,7 +820,7 @@ class _BookmarksState extends State<Bookmarks> {
                                               if (_showTest)
                                                 LoopsImage(
                                                     path: (Provider.of<
-                                                        AuthProvider>(
+                                                        AuthAppProvider>(
                                                         context,
                                                         listen: false)
                                                         .bookmarkTestEntity
@@ -848,14 +848,14 @@ class _BookmarksState extends State<Bookmarks> {
                                                 flex: 8,
                                                 child: Text(
                                                   _showTest
-                                                      ? Provider.of<AuthProvider>(
+                                                      ? Provider.of<AuthAppProvider>(
                                                       context,
                                                       listen: false)
                                                       .bookmarkTestEntity
                                                       .userTests![index]
                                                       .text1 ??
                                                       ''
-                                                      : (Provider.of<AuthProvider>(
+                                                      : (Provider.of<AuthAppProvider>(
                                                       context,
                                                       listen: false)
                                                       .bookmarkQuestionsEntity
@@ -877,7 +877,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                 flex: 3,
                                                 child: _showTest
                                                     ? Text(
-                                                  Provider.of<AuthProvider>(
+                                                  Provider.of<AuthAppProvider>(
                                                       context,
                                                       listen:
                                                       false)
@@ -920,7 +920,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                       ),
                                                       child: Center(
                                                         child: Text(
-                                                          Provider.of<AuthProvider>(
+                                                          Provider.of<AuthAppProvider>(
                                                               context,
                                                               listen:
                                                               false)
@@ -963,7 +963,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                       ),
                                                       child: Center(
                                                         child: Text(
-                                                          (Provider.of<AuthProvider>(
+                                                          (Provider.of<AuthAppProvider>(
                                                               context,
                                                               listen:
                                                               false)
@@ -1005,13 +1005,13 @@ class _BookmarksState extends State<Bookmarks> {
                                                           _showTest
                                                               ? Text(
                                                             _showTest
-                                                                ? Provider.of<AuthProvider>(context, listen: false)
+                                                                ? Provider.of<AuthAppProvider>(context, listen: false)
                                                                 .bookmarkTestEntity
                                                                 .userTests![
                                                             index]
                                                                 .text3 ??
                                                                 ''
-                                                                : (Provider.of<AuthProvider>(context, listen: false)
+                                                                : (Provider.of<AuthAppProvider>(context, listen: false)
                                                                 .bookmarkQuestionsEntity
                                                                 .questions?[index]
                                                                 .format ??
@@ -1040,7 +1040,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                                 width: 5.w,
                                                               ),
                                                               Text(
-                                                                Provider.of<AuthProvider>(
+                                                                Provider.of<AuthAppProvider>(
                                                                     context,
                                                                     listen:
                                                                     false)
@@ -1071,7 +1071,7 @@ class _BookmarksState extends State<Bookmarks> {
                                                           child:
                                                           LinearProgressIndicator(
                                                             value: _showTest
-                                                                ? (Provider.of<AuthProvider>(context,
+                                                                ? (Provider.of<AuthAppProvider>(context,
                                                                 listen: false)
                                                                 .bookmarkTestEntity
                                                                 .userTests![index]
@@ -1105,7 +1105,7 @@ class _BookmarksState extends State<Bookmarks> {
                                   ),
                                 ),
                                 if (_showTest &&
-                                    Provider.of<AuthProvider>(context,
+                                    Provider.of<AuthAppProvider>(context,
                                         listen: false)
                                         .bookmarkTestEntity
                                         .userTests![index]
@@ -1123,7 +1123,7 @@ class _BookmarksState extends State<Bookmarks> {
                                       ),
                                       child: Center(
                                         child: Text(
-                                          Provider.of<AuthProvider>(context,
+                                          Provider.of<AuthAppProvider>(context,
                                               listen: false)
                                               .bookmarkTestEntity
                                               .userTests![index]
@@ -1138,7 +1138,7 @@ class _BookmarksState extends State<Bookmarks> {
                                     ),
                                   ),
                                 if (_showTest &&
-                                    Provider.of<AuthProvider>(context,
+                                    Provider.of<AuthAppProvider>(context,
                                         listen: false)
                                         .bookmarkTestEntity
                                         .userTests![index]
@@ -1157,7 +1157,7 @@ class _BookmarksState extends State<Bookmarks> {
                                       ),
                                       child: Center(
                                         child: Text(
-                                          Provider.of<AuthProvider>(context,
+                                          Provider.of<AuthAppProvider>(context,
                                               listen: false)
                                               .bookmarkTestEntity
                                               .userTests![index]

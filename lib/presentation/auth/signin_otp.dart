@@ -18,7 +18,7 @@ class SignInOTP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authProvider = context.read<AuthProvider>();
+    final authProvider = context.read<AuthAppProvider>();
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: ScrollConfiguration(

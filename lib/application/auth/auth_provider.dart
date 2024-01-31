@@ -27,8 +27,8 @@ StreamSink<String> otpSink = _otpStream.sink;
 Stream<String> otpStream = _otpStream.stream;
 
 @injectable
-class AuthProvider with ChangeNotifier {
-  AuthProvider(
+class AuthAppProvider with ChangeNotifier {
+  AuthAppProvider(
     this.repo,
   );
   final AuthRepo repo;

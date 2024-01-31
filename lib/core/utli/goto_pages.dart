@@ -74,7 +74,7 @@ Future<void> gotoTestHome(BuildContext context) async {
 }
 
 Future<void> gotoSignupPage(BuildContext context) async {
-  await Provider.of<AuthProvider>(context, listen: false)
+  await Provider.of<AuthAppProvider>(context, listen: false)
       .fsignup(fcmToken: fcmTokenGlobal)
       .then((_) async {
     Provider.of<OtherProvider>(context, listen: false)
@@ -91,10 +91,10 @@ Future<void> gotoSignupPage(BuildContext context) async {
 }
 
 Future<void> gotoProfile(BuildContext context) async {
-  await Provider.of<AuthProvider>(context, listen: false)
+  await Provider.of<AuthAppProvider>(context, listen: false)
       .fprofile()
       .then((_) async {
-    await Provider.of<AuthProvider>(context, listen: false)
+    await Provider.of<AuthAppProvider>(context, listen: false)
         .fprofileDetailed()
         .then((_) async {
       Provider.of<OtherProvider>(context, listen: false)
@@ -514,7 +514,8 @@ void goSpecificBack(BuildContext context, index) {
     Navigator.pushReplacementNamed(context, '/testHistory');
   }
   if (index == 3) {
-    Navigator.pushReplacementNamed(context, '/testHome');
+    Navigator.pop(context);
+    // Navigator.pushReplacementNamed(context, '/testHome');
   }
 }
 
@@ -556,7 +557,7 @@ void goBack(BuildContext context) {
 }
 
 Future<void> gotoSplashScreen(BuildContext context) async {
-  await Provider.of<AuthProvider>(context, listen: false)
+  await Provider.of<AuthAppProvider>(context, listen: false)
       .fsplashScreen()
       .then((_) async {
     Provider.of<OtherProvider>(context, listen: false)

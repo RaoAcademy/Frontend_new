@@ -67,7 +67,7 @@ class ImpHomeRepo extends HomeRepo {
     });
     if (result.statusCode == 200 || result.statusCode == 201) {
       if(result.data['message'] != "good"){
-        Provider.of<AuthProvider>(navigatorKey.currentContext!, listen: false)
+        Provider.of<AuthAppProvider>(navigatorKey.currentContext!, listen: false)
             .logout()
             .then(
               (value) {

@@ -73,6 +73,27 @@ class _HomeScreenState extends State<HomeScreen> {
     'assets/images/home/weekly_report.svg',
   ];
 
+  // String setBadgesList(int i) {
+  //   if (Provider.of<HomeProvider>(context, listen: false)
+  //           .homeEntity
+  //           .notifyList?[i][1] ==
+  //       "notifyForNewTest") {
+  //     return _badges[0];
+  //   } else if (Provider.of<HomeProvider>(context, listen: false)
+  //           .homeEntity
+  //           .notifyList?[i][1] ==
+  //       "notifyForSubscription") {
+  //     return _badges[2];
+  //   } else if (Provider.of<HomeProvider>(context, listen: false)
+  //           .homeEntity
+  //           .notifyList?[i][1] ==
+  //       "notifyForNewWeeklyReport") {
+  //     return _badges[3];
+  //   } else {
+  //     return _badges[1];
+  //   }
+  // }
+
   String setBadgesList(int i) {
     if (Provider.of<HomeProvider>(context, listen: false)
             .homeEntity
@@ -357,7 +378,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Hey ${Provider.of<AuthProvider>(context, listen: false).profileDetailsEntity.name}',
+                    'Hey ${Provider.of<AuthAppProvider>(context, listen: false).profileDetailsEntity.name}',
                     style: TextStyle(
                       fontSize: 20.sp,
                       color: LoopsColors.colorBlack,
@@ -679,12 +700,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   });
                                 }
 
-                                showDialog(
+                                 showDialog(
                                   context: context,
                                   builder: (_) {
                                     return FunkyOverlay(
                                       index: index,
-                                      name: setBadgesList(index),
+                                      name: _badges[index],
                                       svg: true,
                                       text: data[1] == "notifyForNewTest"
                                           ? Provider.of<HomeProvider>(context,
@@ -726,7 +747,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       child: SvgPicture.asset(
 
-                                        setBadgesList(index),
+                                        _badges[index],
                                         height: 60.h,
                                       ),
                                     ),

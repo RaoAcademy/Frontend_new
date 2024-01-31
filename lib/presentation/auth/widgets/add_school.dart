@@ -61,7 +61,7 @@ Future addSchool(BuildContext context) {
                         ),
                       ),
                       // value: selectedBoard != '' ? selectedBoard : _boards.first,
-                      items: Provider.of<AuthProvider>(context, listen: false)
+                      items: Provider.of<AuthAppProvider>(context, listen: false)
                           .signUpEntity
                           .boards!
                           .map<DropdownMenuItem<String>>((Boards value) {
@@ -98,7 +98,7 @@ Future addSchool(BuildContext context) {
                     ),
                     CustomButton(
                       onTap: () {
-                        Provider.of<AuthProvider>(context, listen: false)
+                        Provider.of<AuthAppProvider>(context, listen: false)
                             .fschool(
                           schoolName: name.text,
                           schoolAddress: address.text,
@@ -106,7 +106,7 @@ Future addSchool(BuildContext context) {
                           schoolCity: city.text,
                         )
                             .then((_) {
-                          Provider.of<AuthProvider>(context, listen: false)
+                          Provider.of<AuthAppProvider>(context, listen: false)
                               .fsignup(fcmToken: fcmTokenGlobal)
                               .then((_) {
                             Navigator.pop(context);

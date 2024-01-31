@@ -48,7 +48,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i10.PaymentsRepo>(() => _i11.ImpPaymentRepo());
     gh.factory<_i12.SplashProvider>(() => _i12.SplashProvider());
     gh.lazySingleton<_i13.TestRepo>(() => _i14.ImpTestRepo());
-    gh.factory<_i15.AuthProvider>(() => _i15.AuthProvider(gh<_i4.AuthRepo>()));
+    gh.factory<_i15.AuthAppProvider>(() => _i15.AuthAppProvider(gh<_i4.AuthRepo>()));
     gh.factory<_i16.HomeProvider>(() => _i16.HomeProvider(gh<_i7.HomeRepo>()));
     gh.factory<_i17.PaymentProvider>(
         () => _i17.PaymentProvider(gh<_i10.PaymentsRepo>()));

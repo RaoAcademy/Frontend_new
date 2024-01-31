@@ -63,7 +63,7 @@ void showLogoutPopup(BuildContext context) {
                       width: 80.w,
                       height: 40.h,
                       onTap: () {
-                        Provider.of<AuthProvider>(context, listen: false)
+                        Provider.of<AuthAppProvider>(context, listen: false)
                             .logout()
                             .then(
                           (value) {

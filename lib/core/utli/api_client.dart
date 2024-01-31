@@ -32,7 +32,7 @@ class APIClient {
 
   Future<String> getUserId() {
     return navigatorKey.currentContext!
-        .read<AuthProvider>()
+        .read<AuthAppProvider>()
         .getUserId()
         .then((value) => value.toString());
   }

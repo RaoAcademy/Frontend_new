@@ -43,8 +43,8 @@ class ImpAuthRepo extends AuthRepo {
   FirebaseAuth auth = FirebaseAuth.instance;
   String? verificationId;
   UserCredential? credential;
-  final AuthProvider? provider =
-      navigatorKey.currentContext?.read<AuthProvider>();
+  final AuthAppProvider? provider =
+      navigatorKey.currentContext?.read<AuthAppProvider>();
 
   @override
   Future<void> getOtp(String mobileNumber, BuildContext context) async {
@@ -121,7 +121,7 @@ class ImpAuthRepo extends AuthRepo {
           .then((loginEntity)  async {
         logger.d(credential);
         await Future.delayed(Duration(seconds: 3)).then((value) {
-          Provider.of<AuthProvider>(context, listen: false).loginEntity =
+          Provider.of<AuthAppProvider>(context, listen: false).loginEntity =
               loginEntity;
         });
 
@@ -135,7 +135,7 @@ class ImpAuthRepo extends AuthRepo {
             await _apiClient
                 .setAuthToken(loginEntity.token.toString())
                 .then((value) async {
-              await Provider.of<AuthProvider>(context, listen: false)
+              await Provider.of<AuthAppProvider>(context, listen: false)
                   .setUserId(loginEntity.userId!.toInt())
                   .then((value) async {
                 await Provider.of<HomeProvider>(context, listen: false)
@@ -156,10 +156,10 @@ class ImpAuthRepo extends AuthRepo {
             await _apiClient
                 .setAuthToken(loginEntity.token.toString())
                 .then((value) async {
-              await Provider.of<AuthProvider>(context, listen: false)
+              await Provider.of<AuthAppProvider>(context, listen: false)
                   .setUserId(loginEntity.userId!.toInt())
                   .then((value) async {
-                await Provider.of<AuthProvider>(context, listen: false)
+                await Provider.of<AuthAppProvider>(context, listen: false)
                     .fprofileDetailed()
                     .then((_) {
                   // Navigator.pop(context);

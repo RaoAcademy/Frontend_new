@@ -15,7 +15,7 @@ class Info01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SplashProvider splashProvider = context.watch<SplashProvider>();
-    final AuthProvider authProvider = context.watch<AuthProvider>();
+    final AuthAppProvider authProvider = context.watch<AuthAppProvider>();
     return SafeArea(
       child: Scaffold(
         backgroundColor: LoopsColors.primaryColor,

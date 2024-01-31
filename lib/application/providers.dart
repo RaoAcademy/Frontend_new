@@ -13,8 +13,8 @@ final List providers = [
     create: (context) => getIt<SplashProvider>(),
     lazy: false,
   ),
-  ChangeNotifierProvider<AuthProvider>(
-    create: (context) => getIt<AuthProvider>(),
+  ChangeNotifierProvider<AuthAppProvider>(
+    create: (context) => getIt<AuthAppProvider>(),
     lazy: false,
   ),
   ChangeNotifierProvider<HomeProvider>(

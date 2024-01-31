@@ -34,7 +34,7 @@ class _ProfileState extends State<Profile> {
   @override
   void initState() {
     Provider.of<OtherProvider>(context, listen: false).currentTab = 4;
-    final provider = Provider.of<AuthProvider>(context, listen: false);
+    final provider = Provider.of<AuthAppProvider>(context, listen: false);
     final double val = (provider.profileDetailsEntity.totalTests == null ||
             provider.profileDetailsEntity.totalTests == 0)
         ? 0
@@ -125,7 +125,7 @@ class _ProfileState extends State<Profile> {
                             children: [
                               Container(),
                               Text(
-                                Provider.of<AuthProvider>(context)
+                                Provider.of<AuthAppProvider>(context)
                                         .profileDetailsEntity
                                         .name ??
                                     '',
@@ -157,7 +157,7 @@ class _ProfileState extends State<Profile> {
                                         width: 4.w,
                                       ),
                                       Text(
-                                        Provider.of<AuthProvider>(context,
+                                        Provider.of<AuthAppProvider>(context,
                                                 listen: false)
                                             .profileDetailsEntity
                                             .numberOfTestsTaken!
@@ -183,7 +183,7 @@ class _ProfileState extends State<Profile> {
                                         width: 4.w,
                                       ),
                                       Text(
-                                        Provider.of<AuthProvider>(context,
+                                        Provider.of<AuthAppProvider>(context,
                                                 listen: false)
                                             .profileDetailsEntity
                                             .numberOfLoopsTaken!
@@ -209,7 +209,7 @@ class _ProfileState extends State<Profile> {
                                         width: 4.w,
                                       ),
                                       Text(
-                                        Provider.of<AuthProvider>(context,
+                                        Provider.of<AuthAppProvider>(context,
                                                 listen: false)
                                             .profileDetailsEntity
                                             .numberOfSignedPeople!
@@ -239,7 +239,7 @@ class _ProfileState extends State<Profile> {
                               Container(),
                               InkWell(
                                 onTap: () {
-                                  Provider.of<AuthProvider>(context,
+                                  Provider.of<AuthAppProvider>(context,
                                           listen: false)
                                       .favatar()
                                       .onError((error, stackTrace) async {
@@ -306,7 +306,7 @@ class _ProfileState extends State<Profile> {
                                                         children: [
                                                           for (int i = 0;
                                                               i <
-                                                                  Provider.of<AuthProvider>(
+                                                                  Provider.of<AuthAppProvider>(
                                                                           context,
                                                                           listen:
                                                                               false)
@@ -354,12 +354,12 @@ class _ProfileState extends State<Profile> {
                                                                 ),
                                                                 child: InkWell(
                                                                   onTap: () {
-                                                                    Provider.of<AuthProvider>(
+                                                                    Provider.of<AuthAppProvider>(
                                                                             context,
                                                                             listen:
                                                                                 false)
                                                                         .favatar(
-                                                                      avatarId: Provider.of<AuthProvider>(
+                                                                      avatarId: Provider.of<AuthAppProvider>(
                                                                               context,
                                                                               listen:
                                                                                   false)
@@ -375,7 +375,7 @@ class _ProfileState extends State<Profile> {
                                                                       await handleError(
                                                                           error);
                                                                     }).then((value) {
-                                                                      Provider.of<AuthProvider>(
+                                                                      Provider.of<AuthAppProvider>(
                                                                               context,
                                                                               listen:
                                                                                   false)
@@ -395,7 +395,7 @@ class _ProfileState extends State<Profile> {
                                                                       ClipOval(
                                                                     child:
                                                                         LoopsImage(
-                                                                      path: Provider.of<AuthProvider>(
+                                                                      path: Provider.of<AuthAppProvider>(
                                                                               context,
                                                                               listen:
                                                                                   false)
@@ -429,7 +429,7 @@ class _ProfileState extends State<Profile> {
                                       Radius.circular(1000.sp),
                                     ),
                                     child: LoopsImage(
-                                      path: Provider.of<AuthProvider>(context)
+                                      path: Provider.of<AuthAppProvider>(context)
                                           .profileDetailsEntity
                                           .avatarImagePath!,
                                       fit: BoxFit.fill,
@@ -499,7 +499,7 @@ class _ProfileState extends State<Profile> {
                                   ),
                                 ),
                                 Text(
-                                  (Provider.of<AuthProvider>(context)
+                                  (Provider.of<AuthAppProvider>(context)
                                               .profileDetailsEntity
                                               .totalTests! ~/
                                           2)
@@ -511,7 +511,7 @@ class _ProfileState extends State<Profile> {
                                   ),
                                 ),
                                 Text(
-                                  Provider.of<AuthProvider>(context)
+                                  Provider.of<AuthAppProvider>(context)
                                       .profileDetailsEntity
                                       .totalTests!
                                       .toString(),
@@ -571,7 +571,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       Expanded(
                         child: CustomProgressBar(
-                            value: Provider.of<AuthProvider>(context)
+                            value: Provider.of<AuthAppProvider>(context)
                                     .profileDetailsEntity
                                     .profileCompletion!
                                 ? 1
@@ -599,10 +599,10 @@ class _ProfileState extends State<Profile> {
                             //     .onError((error, stackTrace) async {
                             //   await handleError(error);
                             // });
-                            await Provider.of<AuthProvider>(context,
+                            await Provider.of<AuthAppProvider>(context,
                                     listen: false)
                                 .fprofileUpdate(
-                                    Provider.of<AuthProvider>(context,
+                                    Provider.of<AuthAppProvider>(context,
                                             listen: false)
                                         .profileUpdateEntity,
                                     0)
@@ -681,76 +681,82 @@ class _ProfileState extends State<Profile> {
                                   onTap: () {
                                     showDialog(
                                       context: context,
+
                                       builder: (_) {
-                                        return PopupWithBadge(
-                                          svgAsset:
-                                              Provider.of<AuthProvider>(context)
-                                                  .profileDetailsEntity
-                                                  .badgeActivity
-                                                  ?.imagePath,
-                                          body: Material(
-                                            color: Colors.transparent,
-                                            type: MaterialType.transparency,
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Text(
-                                                  Provider.of<AuthProvider>(
-                                                              context)
-                                                          .profileDetailsEntity
-                                                          .badgeActivity
-                                                          ?.message ??
-                                                      '',
-                                                  style: TextStyle(
-                                                    fontSize: 14.sp,
-                                                    fontWeight: FontWeight.w600,
-                                                    color:
-                                                        LoopsColors.textColor,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 8.h,
-                                                ),
-                                                Text(
-                                                  formatDate(Provider.of<
-                                                                  AuthProvider>(
-                                                              context)
-                                                          .profileDetailsEntity
-                                                          .badgeActivity
-                                                          ?.date ??
-                                                      ''),
-                                                  style: TextStyle(
-                                                    fontSize: 10.sp,
-                                                    fontWeight: FontWeight.w600,
-                                                    color:
-                                                        LoopsColors.textColor,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 8.h,
-                                                ),
-                                                InkWell(
-                                                  onTap: () async {
-                                                    await Share.share(
-                                                        "I just earned a badge in Rao Academy app. Come join me on this app where test taking is fun Link",
-                                                        subject:
-                                                            'Share with your friend');
-                                                  },
-                                                  child: Text(
-                                                    'Share with friends',
+                                        return  PopupWithBadge(
+                                          svgAsset: Provider.of<AuthAppProvider>(context)
+                                              .profileDetailsEntity
+                                              .badgeActivity
+                                              ?.imagePath,
+                                          body:  Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  SizedBox(height: 20,),
+                                                  Text(
+                                                    Provider.of<AuthAppProvider>(
+                                                        context)
+                                                        .profileDetailsEntity
+                                                        .badgeActivity
+                                                        ?.message ??
+                                                        '',
                                                     style: TextStyle(
-                                                      fontSize: 12.sp,
-                                                      fontWeight:
-                                                          FontWeight.w600,
+                                                      fontSize: 14.sp,
+                                                      fontWeight: FontWeight.w600,
                                                       color:
-                                                          LoopsColors.textColor,
+                                                      LoopsColors.textColor,
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
+                                                  SizedBox(
+                                                    height: 8.h,
+                                                  ),
+                                                  Text(
+                                                    formatDate(Provider.of<
+                                                        AuthAppProvider>(
+                                                        context)
+                                                        .profileDetailsEntity
+                                                        .badgeActivity
+                                                        ?.date ??
+                                                        ''),
+                                                    style: TextStyle(
+                                                      fontSize: 10.sp,
+                                                      fontWeight: FontWeight.w600,
+                                                      color:
+                                                      LoopsColors.textColor,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 8.h,
+                                                  ),
+                                                  InkWell(
+                                                    onTap: () async {
+                                                      await Share.share(
+                                                          "I just earned a badge in Rao Academy app. Come join me on this app where test taking is fun Link",
+                                                          subject:
+                                                          'Share with your friend');
+                                                    },
+                                                    child: Text(
+                                                      'Share with friends',
+                                                      style: TextStyle(
+                                                        fontSize: 12.sp,
+                                                        fontWeight:
+                                                        FontWeight.w600,
+                                                        color:
+                                                        LoopsColors.textColor,
+                                                      ),
+                                                    ),
+                                                  ),
+
+                                                  // Image.network(
+                                                  //  await getImagePath(Provider.of<AuthAppProvider>(context)
+                                                  //       .profileDetailsEntity
+                                                  //       .badgeActivity
+                                                  //       ?.imagePath ?? "")
+                                                  // )
+
+
+                                                ],
+                                              ),
+
                                         );
                                       },
                                     );
@@ -758,7 +764,7 @@ class _ProfileState extends State<Profile> {
                                   child: ClipRRect(
                                     // height: 120.h,
                                     child: LoopsImage(
-                                      path: Provider.of<AuthProvider>(context)
+                                      path: Provider.of<AuthAppProvider>(context)
                                           .profileDetailsEntity
                                           .badgeActivity
                                           ?.imagePath,
@@ -795,7 +801,7 @@ class _ProfileState extends State<Profile> {
                                     child: ListView.builder(
                                         scrollDirection: Axis.horizontal,
                                         itemCount:
-                                            Provider.of<AuthProvider>(context)
+                                            Provider.of<AuthAppProvider>(context)
                                                 .profileDetailsEntity
                                                 .badgeActivityUpcoming!
                                                 .length,
@@ -810,7 +816,7 @@ class _ProfileState extends State<Profile> {
                                                   builder: (_) {
                                                     return PopupWithBadge(
                                                       svgAsset: Provider.of<
-                                                                  AuthProvider>(
+                                                                  AuthAppProvider>(
                                                               context)
                                                           .profileDetailsEntity
                                                           .badgeActivityUpcoming![
@@ -827,7 +833,7 @@ class _ProfileState extends State<Profile> {
                                                                   .end,
                                                           children: [
                                                             Text(
-                                                              Provider.of<AuthProvider>(
+                                                              Provider.of<AuthAppProvider>(
                                                                           context)
                                                                       .profileDetailsEntity
                                                                       .badgeActivityUpcoming?[
@@ -848,7 +854,7 @@ class _ProfileState extends State<Profile> {
                                                             ),
                                                             Text(
                                                               formatDate(Provider.of<
-                                                                              AuthProvider>(
+                                                                              AuthAppProvider>(
                                                                           context)
                                                                       .profileDetailsEntity
                                                                       .badgeActivityUpcoming?[
@@ -896,7 +902,7 @@ class _ProfileState extends State<Profile> {
                                                 );
                                               },
                                               child: LoopsImage(
-                                                path: Provider.of<AuthProvider>(
+                                                path: Provider.of<AuthAppProvider>(
                                                         context)
                                                     .profileDetailsEntity
                                                     .badgeActivityUpcoming![i]
@@ -967,7 +973,7 @@ class _ProfileState extends State<Profile> {
                                       builder: (_) {
                                         return PopupWithBadge(
                                           svgAsset:
-                                              Provider.of<AuthProvider>(context)
+                                              Provider.of<AuthAppProvider>(context)
                                                   .profileDetailsEntity
                                                   .badgePerformance
                                                   ?.imagePath,
@@ -980,7 +986,7 @@ class _ProfileState extends State<Profile> {
                                                   MainAxisAlignment.end,
                                               children: [
                                                 Text(
-                                                  Provider.of<AuthProvider>(
+                                                  Provider.of<AuthAppProvider>(
                                                               context)
                                                           .profileDetailsEntity
                                                           .badgePerformance
@@ -998,7 +1004,7 @@ class _ProfileState extends State<Profile> {
                                                 ),
                                                 Text(
                                                   formatDate(Provider.of<
-                                                                  AuthProvider>(
+                                                                  AuthAppProvider>(
                                                               context)
                                                           .profileDetailsEntity
                                                           .badgePerformance
@@ -1042,7 +1048,7 @@ class _ProfileState extends State<Profile> {
                                   child: ClipRRect(
                                     // height: 120.h,
                                     child: LoopsImage(
-                                      path: Provider.of<AuthProvider>(context)
+                                      path: Provider.of<AuthAppProvider>(context)
                                               .profileDetailsEntity
                                               .badgePerformance
                                               ?.imagePath ??
@@ -1079,12 +1085,12 @@ class _ProfileState extends State<Profile> {
                                     behavior: MyBehavior(),
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
-                                      itemCount: Provider.of<AuthProvider>(
+                                      itemCount: Provider.of<AuthAppProvider>(
                                                       context)
                                                   .profileDetailsEntity
                                                   .badgePerformanceUpcoming !=
                                               null
-                                          ? Provider.of<AuthProvider>(context)
+                                          ? Provider.of<AuthAppProvider>(context)
                                               .profileDetailsEntity
                                               .badgePerformanceUpcoming!
                                               .length
@@ -1100,7 +1106,7 @@ class _ProfileState extends State<Profile> {
                                                 builder: (_) {
                                                   return PopupWithBadge(
                                                     svgAsset: Provider.of<
-                                                                AuthProvider>(
+                                                                AuthAppProvider>(
                                                             context)
                                                         .profileDetailsEntity
                                                         .badgePerformanceUpcoming![
@@ -1116,7 +1122,7 @@ class _ProfileState extends State<Profile> {
                                                                 .end,
                                                         children: [
                                                           Text(
-                                                            Provider.of<AuthProvider>(
+                                                            Provider.of<AuthAppProvider>(
                                                                         context)
                                                                     .profileDetailsEntity
                                                                     .badgePerformanceUpcoming?[
@@ -1137,7 +1143,7 @@ class _ProfileState extends State<Profile> {
                                                           ),
                                                           Text(
                                                             formatDate(Provider.of<
-                                                                            AuthProvider>(
+                                                                            AuthAppProvider>(
                                                                         context)
                                                                     .profileDetailsEntity
                                                                     .badgePerformanceUpcoming?[
@@ -1183,7 +1189,7 @@ class _ProfileState extends State<Profile> {
                                               );
                                             },
                                             child: LoopsImage(
-                                              path: Provider.of<AuthProvider>(
+                                              path: Provider.of<AuthAppProvider>(
                                                       context)
                                                   .profileDetailsEntity
                                                   .badgePerformanceUpcoming![i]
@@ -1230,7 +1236,7 @@ class _ProfileState extends State<Profile> {
                       SizedBox(
                         height: 6.h,
                       ),
-                      if (Provider.of<AuthProvider>(context)
+                      if (Provider.of<AuthAppProvider>(context)
                               .profileDetailsEntity
                               .badgeProgress !=
                           null)
@@ -1262,7 +1268,7 @@ class _ProfileState extends State<Profile> {
                                           builder: (_) {
                                             return PopupWithBadge(
                                               svgAsset:
-                                                  Provider.of<AuthProvider>(
+                                                  Provider.of<AuthAppProvider>(
                                                           context)
                                                       .profileDetailsEntity
                                                       .badgeProgress
@@ -1276,7 +1282,7 @@ class _ProfileState extends State<Profile> {
                                                       MainAxisAlignment.end,
                                                   children: [
                                                     Text(
-                                                      Provider.of<AuthProvider>(
+                                                      Provider.of<AuthAppProvider>(
                                                                   context)
                                                               .profileDetailsEntity
                                                               .badgeProgress
@@ -1295,7 +1301,7 @@ class _ProfileState extends State<Profile> {
                                                     ),
                                                     Text(
                                                       formatDate(Provider.of<
-                                                                      AuthProvider>(
+                                                                      AuthAppProvider>(
                                                                   context)
                                                               .profileDetailsEntity
                                                               .badgeProgress
@@ -1339,7 +1345,7 @@ class _ProfileState extends State<Profile> {
                                       },
                                       child: LoopsImage(
                                           path: //TODO: this
-                                              Provider.of<AuthProvider>(context)
+                                              Provider.of<AuthAppProvider>(context)
                                                   .profileDetailsEntity
                                                   .badgeProgress
                                                   ?.imagePath),
@@ -1375,7 +1381,7 @@ class _ProfileState extends State<Profile> {
                                       child: ListView.builder(
                                         scrollDirection: Axis.horizontal,
                                         itemCount:
-                                            Provider.of<AuthProvider>(context)
+                                            Provider.of<AuthAppProvider>(context)
                                                 .profileDetailsEntity
                                                 .badgeProgressUpcoming!
                                                 .length,
@@ -1390,7 +1396,7 @@ class _ProfileState extends State<Profile> {
                                                   builder: (_) {
                                                     return PopupWithBadge(
                                                       svgAsset: Provider.of<
-                                                                  AuthProvider>(
+                                                                  AuthAppProvider>(
                                                               context)
                                                           .profileDetailsEntity
                                                           .badgeProgressUpcoming![
@@ -1407,7 +1413,7 @@ class _ProfileState extends State<Profile> {
                                                                   .end,
                                                           children: [
                                                             Text(
-                                                              Provider.of<AuthProvider>(
+                                                              Provider.of<AuthAppProvider>(
                                                                           context)
                                                                       .profileDetailsEntity
                                                                       .badgeProgressUpcoming![
@@ -1427,7 +1433,7 @@ class _ProfileState extends State<Profile> {
                                                               height: 8.h,
                                                             ),
                                                             Text(
-                                                              Provider.of<AuthProvider>(
+                                                              Provider.of<AuthAppProvider>(
                                                                           context)
                                                                       .profileDetailsEntity
                                                                       .badgeProgressUpcoming![
@@ -1475,7 +1481,7 @@ class _ProfileState extends State<Profile> {
                                                 );
                                               },
                                               child: LoopsImage(
-                                                path: Provider.of<AuthProvider>(
+                                                path: Provider.of<AuthAppProvider>(
                                                         context)
                                                     .profileDetailsEntity
                                                     .badgeProgressUpcoming![i]

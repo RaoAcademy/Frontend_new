@@ -52,7 +52,7 @@ class _SignUpFormState extends State<SignUpForm> {
     _grades.clear();
     _schools.clear();
     _schoolsOnSearch.clear();
-     context.read<AuthProvider>().fsignup(fcmToken: fcmTokenGlobal);
+     context.read<AuthAppProvider>().fsignup(fcmToken: fcmTokenGlobal);
     // Provider.of<AuthProvider>(context, listen: false)
     //     .fsignup(fcmToken: fcmTokenGlobal);
 
@@ -79,45 +79,45 @@ class _SignUpFormState extends State<SignUpForm> {
       //     0]);
     }
 
-    context.read<AuthProvider>().dobController.clear();
+    context.read<AuthAppProvider>().dobController.clear();
     if(widget.fromProfile){
-      context.read<AuthProvider>()
+      context.read<AuthAppProvider>()
           .profileUpdateEntity
           .boards
           ?.forEach((element) {
         _boards.add(element.board!);
       });
-      Provider.of<AuthProvider>(context, listen: false).schoolController.text = Provider.of<AuthProvider>(context, listen: false)
+      Provider.of<AuthAppProvider>(context, listen: false).schoolController.text = Provider.of<AuthAppProvider>(context, listen: false)
           .profileUpdateEntity
           .school ?? "";
       // Provider.of<AuthProvider>(context, listen: false).schoolController.text
-      Provider.of<AuthProvider>(context, listen: false).dobController.text = Provider.of<AuthProvider>(context, listen: false)
+      Provider.of<AuthAppProvider>(context, listen: false).dobController.text = Provider.of<AuthAppProvider>(context, listen: false)
           .profileUpdateEntity
           .dob ?? "";
-      Provider.of<AuthProvider>(context, listen: false)
+      Provider.of<AuthAppProvider>(context, listen: false)
           .profileUpdateEntity
           .gender ==
           "male"
           ? (_male = true)
           : (_male = false);
-      for(int i=0 ; i< Provider.of<AuthProvider>(context, listen: false)
+      for(int i=0 ; i< Provider.of<AuthAppProvider>(context, listen: false)
           .profileUpdateEntity.boards!.length ; i++){
-        if(Provider.of<AuthProvider>(context, listen: false)
+        if(Provider.of<AuthAppProvider>(context, listen: false)
             .profileUpdateEntity
-            .board! == Provider.of<AuthProvider>(context, listen: false)
+            .board! == Provider.of<AuthAppProvider>(context, listen: false)
             .profileUpdateEntity.boards![i].id){
-          selectedBoard = Provider.of<AuthProvider>(context, listen: false)
+          selectedBoard = Provider.of<AuthAppProvider>(context, listen: false)
               .profileUpdateEntity.boards![i].board!;
         }
       }
 
-      for(int i=0 ; i< Provider.of<AuthProvider>(context, listen: false)
+      for(int i=0 ; i< Provider.of<AuthAppProvider>(context, listen: false)
           .profileUpdateEntity.grades!.length ; i++){
-        if(Provider.of<AuthProvider>(context, listen: false)
+        if(Provider.of<AuthAppProvider>(context, listen: false)
             .profileUpdateEntity
-            .grade! == Provider.of<AuthProvider>(context, listen: false)
+            .grade! == Provider.of<AuthAppProvider>(context, listen: false)
             .profileUpdateEntity.grades![i].grade){
-          selectedGrade = Provider.of<AuthProvider>(context, listen: false)
+          selectedGrade = Provider.of<AuthAppProvider>(context, listen: false)
               .profileUpdateEntity.grades![i].grade!.toString();
         }
       }
@@ -135,13 +135,13 @@ class _SignUpFormState extends State<SignUpForm> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     if(_boards.isEmpty){
-      context.read<AuthProvider>().signUpEntity.boards
+      context.read<AuthAppProvider>().signUpEntity.boards
           ?.forEach((element) {
         _boards.add(element.board!);
       });
     }
   if(_grades.isEmpty){
-    context.read<AuthProvider>()
+    context.read<AuthAppProvider>()
         .signUpEntity
         .grades
         ?.forEach((element) {
@@ -161,7 +161,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AuthProvider>(context);
+    final provider = Provider.of<AuthAppProvider>(context);
     if (kDebugMode) {
       print(provider.profileUpdateEntity.gender);
     }
@@ -459,13 +459,13 @@ shrinkWrap: true,
                 SizedBox(
                   height: 8.h,
                 ),
-                widget.fromProfile ? Text((_boards[Provider.of<AuthProvider>(context, listen: false)
+                widget.fromProfile ? Text((_boards[Provider.of<AuthAppProvider>(context, listen: false)
                     .profileUpdateEntity
                     .board! -
                     1 ??
                     0]),style: TextStyle(color: LoopsColors.textColor,fontSize: 18)) : DropdownButtonFormField(
                   hint: Text(
-                  !widget.fromProfile ?  'BOARD' : (_boards[Provider.of<AuthProvider>(context, listen: false)
+                  !widget.fromProfile ?  'BOARD' : (_boards[Provider.of<AuthAppProvider>(context, listen: false)
                                     .profileUpdateEntity
                                     .board! -
                                 1 ??
@@ -491,7 +491,7 @@ shrinkWrap: true,
                   onChanged: (newValue) {
                     setState(() {
                       selectedBoard = newValue.toString();
-                      selectedBoardID = Provider.of<AuthProvider>(context,
+                      selectedBoardID = Provider.of<AuthAppProvider>(context,
                               listen: false)
                           .signUpEntity
                           .boards!
@@ -530,7 +530,7 @@ shrinkWrap: true,
                     onChanged: (newValue) {
                       setState(() {
                         selectedGrade = newValue.toString();
-                        selectedGradeID = Provider.of<AuthProvider>(context,
+                        selectedGradeID = Provider.of<AuthAppProvider>(context,
                                 listen: false)
                             .signUpEntity
                             .grades!
@@ -562,10 +562,10 @@ shrinkWrap: true,
                     // onTap: () => _formKey.currentState!.reset(),
                     onChanged: (p0) async{
                       if(p0.length >= 10){
-                        await Provider.of<AuthProvider>(context,
+                        await Provider.of<AuthAppProvider>(context,
                             listen: false).fvalidateReferral(p0).then((value) {
-                              if(context.read<AuthProvider>().validateReferalEntity != null){
-                              isReferralVerify =  context.read<AuthProvider>().validateReferalEntity.valid ?? false;
+                              if(context.read<AuthAppProvider>().validateReferalEntity != null){
+                              isReferralVerify =  context.read<AuthAppProvider>().validateReferalEntity.valid ?? false;
 setState(() {
 
 });
@@ -708,16 +708,16 @@ setState(() {
                             .flogin(provider.phoneController.text)
                             .then((value) {
                           if (value) { */
-                        Provider.of<AuthProvider>(context, listen: false)
+                        Provider.of<AuthAppProvider>(context, listen: false)
                             .getUserId()
                             .then((uid) {
                           if (uid != 0) {
-                            Provider.of<AuthProvider>(context, listen: false)
+                            Provider.of<AuthAppProvider>(context, listen: false)
                                 .fprofile()
                                 .onError((error, stackTrace) async {
                               await handleError(error);
                             });
-                            Provider.of<AuthProvider>(context, listen: false)
+                            Provider.of<AuthAppProvider>(context, listen: false)
                                 .fprofileDetailed()
                                 .then((_) {
                               gotoHomePage(context)

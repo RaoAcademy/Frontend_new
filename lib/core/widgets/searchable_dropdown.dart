@@ -44,7 +44,7 @@ class _SearchableDropDownState extends State<SearchableDropDown> {
               textCapitalization: TextCapitalization.characters,
               hintText: widget.hintText,
               labelText: widget.labelText,
-              controller: Provider.of<AuthProvider>(context, listen: false)
+              controller: Provider.of<AuthAppProvider>(context, listen: false)
                   .schoolController,
               onChanged: (val) {
                 setState(() {
@@ -59,7 +59,7 @@ class _SearchableDropDownState extends State<SearchableDropDown> {
               },
             ),
           ),
-          if (Provider.of<AuthProvider>(context, listen: false)
+          if (Provider.of<AuthAppProvider>(context, listen: false)
                       .schoolController
                       .text !=
                   '' &&
@@ -80,7 +80,7 @@ class _SearchableDropDownState extends State<SearchableDropDown> {
                         onTap: () {
                           setState(() {
                             widget.onChanged?.call(_items[index]);
-                            Provider.of<AuthProvider>(context, listen: false)
+                            Provider.of<AuthAppProvider>(context, listen: false)
                                 .schoolController
                                 .text = _items[index];
                             _items.clear();
@@ -123,13 +123,13 @@ class _SearchableDropDownState extends State<SearchableDropDown> {
                 ],
               ),
             ),
-          if (Provider.of<AuthProvider>(context, listen: false)
+          if (Provider.of<AuthAppProvider>(context, listen: false)
                       .schoolController
                       .text !=
                   '' &&
               _items.isEmpty &&
               !widget.items!.contains(
-                  Provider.of<AuthProvider>(context, listen: false)
+                  Provider.of<AuthAppProvider>(context, listen: false)
                       .schoolController
                       .text))
             Column(

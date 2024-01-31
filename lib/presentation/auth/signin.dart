@@ -18,7 +18,7 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authProvider = context.read<AuthProvider>();
+    final authProvider = context.read<AuthAppProvider>();
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(35.sp),

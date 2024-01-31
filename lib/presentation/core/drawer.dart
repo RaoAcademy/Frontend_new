@@ -7,7 +7,6 @@ import 'package:rao_academy/application/other/other_provider.dart';
 import 'package:rao_academy/core/utli/error_handle.dart';
 import 'package:rao_academy/core/utli/goto_pages.dart';
 import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/coin.dart';
 import 'package:rao_academy/core/widgets/container_with_border.dart';
 import 'package:rao_academy/core/widgets/logout_popup.dart';
 import 'package:rao_academy/core/widgets/rate_app.dart';
@@ -229,7 +228,7 @@ class _DrawerState extends State<DrawerWidget> {
                               Radius.circular(1000.sp),
                             ),
                             child: LoopsImage(
-                              path: Provider.of<AuthProvider>(context)
+                              path: Provider.of<AuthAppProvider>(context)
                                   .profileDetailsEntity
                                   .avatarImagePath!,
                               fit: BoxFit.fill,
@@ -245,7 +244,7 @@ class _DrawerState extends State<DrawerWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text(
-                            Provider.of<AuthProvider>(context)
+                            Provider.of<AuthAppProvider>(context)
                                 .profileDetailsEntity
                                 .name!,
                             style: TextStyle(
@@ -254,22 +253,33 @@ class _DrawerState extends State<DrawerWidget> {
                               color: LoopsColors.colorBlack,
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Coin(coinSize: 30.sp),
-                              Text(
-                                Provider.of<AuthProvider>(context)
-                                    .profileDetailsEntity
-                                    .totalTests!
-                                    .toString(),
-                                style: TextStyle(
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text('Grade :', style: TextStyle(
                                   fontSize: 18.sp,
                                   fontWeight: FontWeight.w600,
                                   color: LoopsColors.colorBlack,
+                                ),),
+                                // Image.asset("assets/images/other/student_grade.png",height: 30,width: 30,),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    Provider.of<AuthAppProvider>(context)
+                                        .profile
+                                        .grade!
+                                        .toString(),
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: LoopsColors.colorBlack,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           )
                         ],
                       ),
@@ -516,7 +526,7 @@ class _DrawerState extends State<DrawerWidget> {
                     ],
                   ),
                   onTap: () {
-                    Provider.of<AuthProvider>(context, listen: false)
+                    Provider.of<AuthAppProvider>(context, listen: false)
                         .fbookmarkTest()
                         .then((value) => {
                               Navigator.pushNamed(
