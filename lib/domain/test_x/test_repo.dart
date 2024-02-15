@@ -1,19 +1,19 @@
 import 'package:dartz/dartz.dart';
-import 'package:rao_academy/domain/entities/analytics_entity.dart';
-import 'package:rao_academy/domain/entities/analytics_subject.dart';
-import 'package:rao_academy/domain/entities/chapter_entity.dart';
-import 'package:rao_academy/domain/entities/custom_test_entity.dart';
-import 'package:rao_academy/domain/entities/loops_bottomsheet_entity.dart';
-import 'package:rao_academy/domain/entities/loops_home_entity.dart';
-import 'package:rao_academy/domain/entities/reports_entity.dart';
-import 'package:rao_academy/domain/entities/sprint_history_entity.dart';
-import 'package:rao_academy/domain/entities/test_chapter_concepts.dart';
-import 'package:rao_academy/domain/entities/test_history_entity.dart';
-import 'package:rao_academy/domain/entities/test_home_entity.dart';
-import 'package:rao_academy/domain/entities/test_instructions_entity.dart';
-import 'package:rao_academy/domain/entities/test_results_entity.dart';
-import 'package:rao_academy/domain/entities/test_start_entity.dart';
-import 'package:rao_academy/domain/entities/test_summary_entity.dart';
+import 'package:EdTestz/domain/entities/analytics_entity.dart';
+import 'package:EdTestz/domain/entities/analytics_subject.dart';
+import 'package:EdTestz/domain/entities/chapter_entity.dart';
+import 'package:EdTestz/domain/entities/custom_test_entity.dart';
+import 'package:EdTestz/domain/entities/loops_bottomsheet_entity.dart';
+import 'package:EdTestz/domain/entities/loops_home_entity.dart';
+import 'package:EdTestz/domain/entities/reports_entity.dart';
+import 'package:EdTestz/domain/entities/sprint_history_entity.dart';
+import 'package:EdTestz/domain/entities/test_chapter_concepts.dart';
+import 'package:EdTestz/domain/entities/test_history_entity.dart';
+import 'package:EdTestz/domain/entities/test_home_entity.dart';
+import 'package:EdTestz/domain/entities/test_instructions_entity.dart';
+import 'package:EdTestz/domain/entities/test_results_entity.dart';
+import 'package:EdTestz/domain/entities/test_start_entity.dart';
+import 'package:EdTestz/domain/entities/test_summary_entity.dart';
 
 abstract class TestRepo {
   Future<TestStart> ftestStart({

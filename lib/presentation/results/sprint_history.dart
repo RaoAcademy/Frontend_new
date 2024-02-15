@@ -1,12 +1,12 @@
 /* import 'package:curved_progress_bar/curved_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rao_academy/application/test/test_provider.dart';
-import 'package:rao_academy/core/theme/theme.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/coin.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
+import 'package:EdTestz/application/test/test_provider.dart';
+import 'package:EdTestz/core/theme/theme.dart';
+import 'package:EdTestz/core/utli/goto_pages.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/coin.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
 import 'package:provider/provider.dart';
 
 class SprintHistory extends StatelessWidget {

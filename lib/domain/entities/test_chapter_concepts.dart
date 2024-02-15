@@ -1,4 +1,4 @@
-import 'package:rao_academy/domain/entities/recommendations_entity.dart';
+import 'package:EdTestz/domain/entities/recommendations_entity.dart';
 
 class TestChapterConcept {
   TestChapterConcept(

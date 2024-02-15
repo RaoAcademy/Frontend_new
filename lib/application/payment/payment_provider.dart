@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rao_academy/domain/payment/payment_repo.dart';
+import 'package:EdTestz/domain/payment/payment_repo.dart';
 
 @injectable
 class PaymentProvider extends ChangeNotifier {

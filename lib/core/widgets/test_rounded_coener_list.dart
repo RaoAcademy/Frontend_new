@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rao_academy/domain/entities/concept_list.dart';
+import 'package:EdTestz/domain/entities/concept_list.dart';
 
 import '../theme/custom_scroll_behaviour.dart';
 import '../utli/loops_urls.dart';

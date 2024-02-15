@@ -4,16 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:in_app_update/in_app_update.dart';
-import 'package:rao_academy/application/auth/auth_provider.dart';
-import 'package:rao_academy/application/firebase/firebase_notification_provider.dart';
-import 'package:rao_academy/application/home/home_provider.dart';
-import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
 import 'package:provider/provider.dart';
 import 'package:version/version.dart';
-
+import '../../application/auth/auth_provider.dart';
+import '../../application/firebase/firebase_notification_provider.dart';
+import '../../application/home/home_provider.dart';
 import '../../application/other/other_provider.dart';
+import '../../core/utli/error_handle.dart';
+import '../../core/utli/goto_pages.dart';
+import '../../core/utli/loops_urls.dart';
 import '../../main.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -161,12 +160,12 @@ class _SplashScreenState extends State<SplashScreen> {
                     height: 38.h,
                   ), */
                   Text(
-                    'Rao Academy',
+                    'EdTestz',
                     style: TextStyle(
                       fontFamily: 'Hurme',
-                      fontSize: 40,
+                      fontSize: 44,
                       fontWeight: FontWeight.w700,
-                      letterSpacing: 1.sp,
+                      letterSpacing: 2.5.sp,
                       color: LoopsColors.colorWhite,
                     ),
                   )

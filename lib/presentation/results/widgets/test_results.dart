@@ -2,12 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/test/test_provider.dart';
-import 'package:rao_academy/core/theme/custom_scroll_behaviour.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/presentation/test_screens/widget/results_card.dart';
+import 'package:EdTestz/application/test/test_provider.dart';
+import 'package:EdTestz/core/theme/custom_scroll_behaviour.dart';
+import 'package:EdTestz/core/utli/goto_pages.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/presentation/test_screens/widget/results_card.dart';
 
 import '../../../domain/entities/recommendations_entity.dart';
 

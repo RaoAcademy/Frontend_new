@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
-import 'package:rao_academy/domain/entities/concept_entity.dart';
-import 'package:rao_academy/domain/entities/difficulty_level_entity.dart';
-import 'package:rao_academy/domain/entities/overall_entity.dart';
-import 'package:rao_academy/domain/entities/question_format_entity.dart';
+import 'package:EdTestz/domain/entities/concept_entity.dart';
+import 'package:EdTestz/domain/entities/difficulty_level_entity.dart';
+import 'package:EdTestz/domain/entities/overall_entity.dart';
+import 'package:EdTestz/domain/entities/question_format_entity.dart';
 
 class TestResultsEntity {
   TestResultsEntity(

@@ -1,6 +1,6 @@
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:rao_academy/core/utli/logger.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/utli/logger.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
 
 Future<void> handleError(Object? error) async {
   await Fluttertoast.showToast(

@@ -19,7 +19,7 @@ class Profile {
   String? badge;
   num? coins;
   num? defaultSubjectId;
-  num? grade;
+  int? grade;
   String? name;
 
   Map<String, dynamic> toJson() {

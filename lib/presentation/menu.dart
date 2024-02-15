@@ -2,19 +2,19 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/auth/auth_provider.dart';
-import 'package:rao_academy/application/firebase/firebase_notification_provider.dart';
-import 'package:rao_academy/application/home/home_provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/application/test/test_provider.dart';
-import 'package:rao_academy/core/theme/custom_scroll_behaviour.dart';
-import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/custom_button.dart';
-import 'package:rao_academy/core/widgets/logout_popup.dart';
-import 'package:rao_academy/core/widgets/rate_app.dart';
-import 'package:rao_academy/presentation/auth/widgets/add_school.dart';
+import 'package:EdTestz/application/auth/auth_provider.dart';
+import 'package:EdTestz/application/firebase/firebase_notification_provider.dart';
+import 'package:EdTestz/application/home/home_provider.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/application/test/test_provider.dart';
+import 'package:EdTestz/core/theme/custom_scroll_behaviour.dart';
+import 'package:EdTestz/core/utli/error_handle.dart';
+import 'package:EdTestz/core/utli/goto_pages.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/custom_button.dart';
+import 'package:EdTestz/core/widgets/logout_popup.dart';
+import 'package:EdTestz/core/widgets/rate_app.dart';
+import 'package:EdTestz/presentation/auth/widgets/add_school.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);

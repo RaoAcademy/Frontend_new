@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/test/test_provider.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/core/widgets/custom_button.dart';
-import 'package:rao_academy/core/widgets/pie_chart.dart';
-import 'package:rao_academy/domain/entities/recommendations_entity.dart';
+import 'package:EdTestz/application/test/test_provider.dart';
+import 'package:EdTestz/core/utli/goto_pages.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/core/widgets/custom_button.dart';
+import 'package:EdTestz/core/widgets/pie_chart.dart';
+import 'package:EdTestz/domain/entities/recommendations_entity.dart';
 
 class TestSummary extends StatefulWidget {
  final bool isShowResumeButton;

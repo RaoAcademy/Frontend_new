@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/domain/entities/concept_entity.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/domain/entities/concept_entity.dart';
 
 class AnswerKeys extends StatelessWidget {
   const AnswerKeys({

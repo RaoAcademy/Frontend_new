@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_share/flutter_share.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/home/home_provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/core/utli/copy_text.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/core/widgets/earned_rewards.dart';
+import 'package:EdTestz/application/home/home_provider.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/core/utli/copy_text.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/core/widgets/earned_rewards.dart';
 import 'package:share_plus/share_plus.dart';
-// import 'package:rao_academy/core/widgets/pie_chart.dart';
+// import 'package:EdTestz/core/widgets/pie_chart.dart';
 
 // bool _showEarned = false;
 
@@ -561,7 +561,7 @@ class Refer extends StatelessWidget {
                             onTap: () async {
                               // share();
                               await Share.share(
-                                  "Hey, I have been using this Rao Academy app for Test taking. It is very fun to take tests on this app. \n Download the app from following link: https://play.google.com/store/apps/details?id=com.app.raoacademy",
+                                  "Hey, I have been using this EdTestz app for Test taking. It is very fun to take tests on this app. \n Download the app from following link: https://play.google.com/store/apps/details?id=com.app.raoacademy",
                                   subject: 'Share with your friend');
 
                               //  Share.text(

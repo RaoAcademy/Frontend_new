@@ -1,4 +1,4 @@
-import 'package:rao_academy/domain/entities/subject_list_entity.dart';
+import 'package:EdTestz/domain/entities/subject_list_entity.dart';
 
 class BookmarkQuestionsEntity {
   BookmarkQuestionsEntity({this.questions, this.subjects});

@@ -4,22 +4,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/auth/auth_provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/core/theme/custom_scroll_behaviour.dart';
-import 'package:rao_academy/core/utli/custom_progress.dart';
-import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/utli/svg_image_util.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/presentation/auth/signup_form.dart';
-import 'package:rao_academy/presentation/auth/widgets/popup_with_badge.dart';
-// import 'package:rao_academy/presentation/auth/widgets/popup_with_badge.dart';
-import 'package:rao_academy/presentation/core/bottom_bar.dart';
-import 'package:rao_academy/presentation/core/drawer.dart';
-import 'package:rao_academy/presentation/home/homescreen.dart';
-import 'package:rao_academy/presentation/other/widgets/cached_network_image.dart';
+import 'package:EdTestz/application/auth/auth_provider.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/core/theme/custom_scroll_behaviour.dart';
+import 'package:EdTestz/core/utli/custom_progress.dart';
+import 'package:EdTestz/core/utli/error_handle.dart';
+import 'package:EdTestz/core/utli/goto_pages.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/utli/svg_image_util.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/presentation/auth/signup_form.dart';
+import 'package:EdTestz/presentation/auth/widgets/popup_with_badge.dart';
+// import 'package:EdTestz/presentation/auth/widgets/popup_with_badge.dart';
+import 'package:EdTestz/presentation/core/bottom_bar.dart';
+import 'package:EdTestz/presentation/core/drawer.dart';
+import 'package:EdTestz/presentation/home/homescreen.dart';
+import 'package:EdTestz/presentation/other/widgets/cached_network_image.dart';
 import 'package:share_plus/share_plus.dart';
 
 class Profile extends StatefulWidget {
@@ -730,7 +730,7 @@ class _ProfileState extends State<Profile> {
                                                   InkWell(
                                                     onTap: () async {
                                                       await Share.share(
-                                                          "I just earned a badge in Rao Academy app. Come join me on this app where test taking is fun Link",
+                                                          "I just earned a badge in EdTestz app. Come join me on this app where test taking is fun Link",
                                                           subject:
                                                           'Share with your friend');
                                                     },
@@ -876,7 +876,7 @@ class _ProfileState extends State<Profile> {
                                                             InkWell(
                                                               onTap: () async {
                                                                 await Share.share(
-                                                                    "I just earned a badge in Rao Academy app. Come join me on this app where test taking is fun Link",
+                                                                    "I just earned a badge in EdTestz app. Come join me on this app where test taking is fun Link",
                                                                     subject:
                                                                         'Share with your friend');
                                                               },
@@ -1023,7 +1023,7 @@ class _ProfileState extends State<Profile> {
                                                 InkWell(
                                                   onTap: () async {
                                                     await Share.share(
-                                                        "I just earned a badge in Rao Academy app. Come join me on this app where test taking is fun Link",
+                                                        "I just earned a badge in EdTestz app. Come join me on this app where test taking is fun Link",
                                                         subject:
                                                             'Share with your friend');
                                                   },
@@ -1165,7 +1165,7 @@ class _ProfileState extends State<Profile> {
                                                           InkWell(
                                                             onTap: () async {
                                                               await Share.share(
-                                                                  "I just earned a badge in Rao Academy app. Come join me on this app where test taking is fun Link",
+                                                                  "I just earned a badge in EdTestz app. Come join me on this app where test taking is fun Link",
                                                                   subject:
                                                                       'Share with your friend');
                                                             },
@@ -1321,7 +1321,7 @@ class _ProfileState extends State<Profile> {
                                                     InkWell(
                                                       onTap: () async {
                                                         await Share.share(
-                                                            "I just earned a badge in Rao Academy app. Come join me on this app where test taking is fun Link",
+                                                            "I just earned a badge in EdTestz app. Come join me on this app where test taking is fun Link",
                                                             subject:
                                                                 'Share with your friend');
                                                       },
@@ -1455,7 +1455,7 @@ class _ProfileState extends State<Profile> {
                                                             InkWell(
                                                               onTap: () async {
                                                                 await Share.share(
-                                                                    "I just earned a badge in Rao Academy app. Come join me on this app where test taking is fun Link",
+                                                                    "I just earned a badge in EdTestz app. Come join me on this app where test taking is fun Link",
                                                                     subject:
                                                                         'Share with your friend');
                                                               },

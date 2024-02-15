@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/auth/auth_provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/application/splash/splash_provider.dart';
+import 'package:EdTestz/application/auth/auth_provider.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/application/splash/splash_provider.dart';
 // import 'package:flutter_svg/svg.dart';
-import 'package:rao_academy/core/theme/theme.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/presentation/splash/widgets/indicators.dart';
+import 'package:EdTestz/core/theme/theme.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/presentation/splash/widgets/indicators.dart';
 
 class Info01 extends StatelessWidget {
   const Info01({Key? key}) : super(key: key);

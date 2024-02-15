@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/home/home_provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/core/theme/custom_scroll_behaviour.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/core/widgets/expandable_panel_with_child.dart';
+import 'package:EdTestz/application/home/home_provider.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/core/theme/custom_scroll_behaviour.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/core/widgets/expandable_panel_with_child.dart';
 
 class FAQ extends StatelessWidget {
   const FAQ({Key? key}) : super(key: key);

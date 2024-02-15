@@ -1,5 +1,5 @@
-import 'package:rao_academy/domain/entities/active_plan_entity.dart';
-import 'package:rao_academy/domain/entities/subcriptions.dart';
+import 'package:EdTestz/domain/entities/active_plan_entity.dart';
+import 'package:EdTestz/domain/entities/subcriptions.dart';
 
 class SubscriptionEntity {
   SubscriptionEntity({

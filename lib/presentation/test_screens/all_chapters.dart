@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/application/test/test_provider.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/presentation/other/widgets/cached_network_image.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/application/test/test_provider.dart';
+import 'package:EdTestz/core/utli/goto_pages.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/presentation/other/widgets/cached_network_image.dart';
 
 class AllChapters extends StatelessWidget {
   const AllChapters({Key? key}) : super(key: key);

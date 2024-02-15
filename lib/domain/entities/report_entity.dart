@@ -1,5 +1,5 @@
-import 'package:rao_academy/domain/entities/performance_entity.dart';
-import 'package:rao_academy/domain/entities/progress_entity.dart';
+import 'package:EdTestz/domain/entities/performance_entity.dart';
+import 'package:EdTestz/domain/entities/progress_entity.dart';
 
 class Report {
   Report(

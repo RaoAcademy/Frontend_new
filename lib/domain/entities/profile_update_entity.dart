@@ -1,6 +1,6 @@
-import 'package:rao_academy/domain/entities/boards_entity.dart';
-import 'package:rao_academy/domain/entities/grades_entity.dart';
-import 'package:rao_academy/domain/entities/schools_entity.dart';
+import 'package:EdTestz/domain/entities/boards_entity.dart';
+import 'package:EdTestz/domain/entities/grades_entity.dart';
+import 'package:EdTestz/domain/entities/schools_entity.dart';
 
 class ProfileUpdateEntity {
   ProfileUpdateEntity(

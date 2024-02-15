@@ -1,5 +1,5 @@
-import 'package:rao_academy/domain/entities/subject_list_entity.dart';
-import 'package:rao_academy/domain/entities/subjects_entity.dart';
+import 'package:EdTestz/domain/entities/subject_list_entity.dart';
+import 'package:EdTestz/domain/entities/subjects_entity.dart';
 
 List<Subjects> subjectListToSubjects(List<SubjectList> subjects) {
   final List<Subjects> list = [];

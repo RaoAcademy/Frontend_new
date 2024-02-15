@@ -1,13 +1,13 @@
 /* import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rao_academy/application/test/test_provider.dart';
-import 'package:rao_academy/core/theme/custom_scroll_behaviour.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/custom_button.dart';
-import 'package:rao_academy/presentation/other/widgets/custom_table.dart';
+import 'package:EdTestz/application/test/test_provider.dart';
+import 'package:EdTestz/core/theme/custom_scroll_behaviour.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/custom_button.dart';
+import 'package:EdTestz/presentation/other/widgets/custom_table.dart';
 import 'package:provider/provider.dart';
-// import 'package:rao_academy/core/widgets/container_with_border.dart';
+// import 'package:EdTestz/core/widgets/container_with_border.dart';
 
 List<String> _chapter = ['REFRACTION', 'LIGHT', 'PHYSICS'];
 List<Color> _chapterColor = [

@@ -1,4 +1,4 @@
-import 'package:rao_academy/domain/entities/home_entity.dart';
+import 'package:EdTestz/domain/entities/home_entity.dart';
 
 class Progress {
   Progress(

@@ -1,7 +1,7 @@
-import 'package:rao_academy/domain/entities/loops_entity.dart';
-import 'package:rao_academy/domain/entities/progress_entity.dart';
-import 'package:rao_academy/domain/entities/recommendations_entity.dart';
-import 'package:rao_academy/domain/entities/report_entity.dart';
+import 'package:EdTestz/domain/entities/loops_entity.dart';
+import 'package:EdTestz/domain/entities/progress_entity.dart';
+import 'package:EdTestz/domain/entities/recommendations_entity.dart';
+import 'package:EdTestz/domain/entities/report_entity.dart';
 
 class HomeEntity {
   HomeEntity({

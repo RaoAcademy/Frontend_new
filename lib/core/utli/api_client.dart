@@ -10,12 +10,12 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:injectable/injectable.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/auth/auth_provider.dart';
-import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/logger.dart';
-// import 'package:rao_academy/core/utli/logger.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/main.dart';
+import 'package:EdTestz/application/auth/auth_provider.dart';
+import 'package:EdTestz/core/utli/error_handle.dart';
+import 'package:EdTestz/core/utli/logger.dart';
+// import 'package:EdTestz/core/utli/logger.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/main.dart';
 // import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

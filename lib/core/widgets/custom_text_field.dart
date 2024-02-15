@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rao_academy/core/theme/theme.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/utli/validations.dart';
+import 'package:EdTestz/core/theme/theme.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/utli/validations.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({

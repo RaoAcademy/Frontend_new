@@ -1,4 +1,4 @@
-import 'package:rao_academy/domain/entities/sprint_entity.dart';
+import 'package:EdTestz/domain/entities/sprint_entity.dart';
 
 class SprintHistoryEntity {
   SprintHistoryEntity({this.loopAchieved, this.loopTarget, this.sprint});

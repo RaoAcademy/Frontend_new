@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/home/home_provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-// import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/core/theme/custom_scroll_behaviour.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/core/widgets/show_bottom_sheet.dart';
-import 'package:rao_academy/core/widgets/unorderd_list.dart';
-import 'package:rao_academy/presentation/other/widgets/subscription_popup.dart';
+import 'package:EdTestz/application/home/home_provider.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+// import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/core/theme/custom_scroll_behaviour.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/core/widgets/show_bottom_sheet.dart';
+import 'package:EdTestz/core/widgets/unorderd_list.dart';
+import 'package:EdTestz/presentation/other/widgets/subscription_popup.dart';
 
 class Subcription extends StatelessWidget {
   const Subcription({Key? key}) : super(key: key);
@@ -271,7 +271,7 @@ class Subcription extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Rao Academy',
+                                'EdTestz',
                                 style: TextStyle(
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.w700,

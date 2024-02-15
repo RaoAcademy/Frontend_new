@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/home/home_provider.dart';
-import 'package:rao_academy/application/payment/payment_provider.dart';
-import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/core/widgets/custom_button.dart';
-import 'package:rao_academy/domain/entities/subcriptions.dart';
-import 'package:rao_academy/phone_pay/pone_pay.dart';
+import 'package:EdTestz/application/home/home_provider.dart';
+import 'package:EdTestz/application/payment/payment_provider.dart';
+import 'package:EdTestz/core/utli/error_handle.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/core/widgets/custom_button.dart';
+import 'package:EdTestz/domain/entities/subcriptions.dart';
+import 'package:EdTestz/phone_pay/pone_pay.dart';
 
 TextEditingController _controller = TextEditingController();
 
@@ -27,14 +27,12 @@ class SubscriptionBottomsheet extends StatefulWidget {
 }
 
 class _SubscriptionBottomsheetState extends State<SubscriptionBottomsheet> {
-  bool _isSubscriptionBottomOpen = false;
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<HomeProvider>();
     final paymentProvider = context.watch<PaymentProvider>();
     return SingleChildScrollView(
       child: Container(
-        //  height: _isSubscriptionBottomOpen ? MediaQuery.of(context).size.height / 1.4 : MediaQuery.of(context).size.height / 1.9,
         child: Padding(
           padding: EdgeInsets.all(24.sp),
           child: Column(
@@ -211,11 +209,6 @@ class _SubscriptionBottomsheetState extends State<SubscriptionBottomsheet> {
                       SizedBox(
                         width: 140.w,
                         child: TextFormField(
-                          onTap: () {
-                            setState(() {
-                              _isSubscriptionBottomOpen = true;
-                            });
-                          },
                             style: TextStyle(fontSize: 14.sp),
                             controller: _controller,
                             textCapitalization: TextCapitalization.characters,
@@ -230,11 +223,6 @@ class _SubscriptionBottomsheetState extends State<SubscriptionBottomsheet> {
                                 borderSide: BorderSide.none,
                               ),
                             ),
-                            onFieldSubmitted: (value) {
-                              setState(() {
-                                _isSubscriptionBottomOpen = false;
-                              });
-                            },
                             onChanged: (value) {
                               provider.couponEntity.value = 0;
                               provider.setState();

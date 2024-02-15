@@ -1,5 +1,5 @@
-import 'package:rao_academy/domain/entities/date_filter_entity.dart';
-import 'package:rao_academy/domain/entities/subject_list_entity.dart';
+import 'package:EdTestz/domain/entities/date_filter_entity.dart';
+import 'package:EdTestz/domain/entities/subject_list_entity.dart';
 
 class AnalyticsEntity {
   AnalyticsEntity(

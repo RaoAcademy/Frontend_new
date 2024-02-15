@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:rao_academy/domain/entities/recommendations_entity.dart';
-import 'package:rao_academy/presentation/core/test_card.dart';
+import 'package:EdTestz/domain/entities/recommendations_entity.dart';
+import 'package:EdTestz/presentation/core/test_card.dart';
 
 class TestCard extends StatelessWidget {
   const TestCard({

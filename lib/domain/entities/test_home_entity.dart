@@ -1,5 +1,5 @@
-import 'package:rao_academy/domain/entities/recommendations_entity.dart';
-import 'package:rao_academy/domain/entities/subjects_entity.dart';
+import 'package:EdTestz/domain/entities/recommendations_entity.dart';
+import 'package:EdTestz/domain/entities/subjects_entity.dart';
 
 class TestHomeEntity {
   TestHomeEntity(

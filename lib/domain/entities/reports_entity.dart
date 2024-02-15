@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-import 'package:rao_academy/domain/entities/subject_list_entity.dart';
-import 'package:rao_academy/domain/entities/time_entity.dart';
+import 'package:EdTestz/domain/entities/subject_list_entity.dart';
+import 'package:EdTestz/domain/entities/time_entity.dart';
 
 ReportsEntity reportsEntityFromJson(String str) => ReportsEntity.fromJson(json.decode(str) as Map<String,dynamic>);
 

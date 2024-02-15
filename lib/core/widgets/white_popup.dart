@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:rao_academy/core/theme/theme.dart';
-// import 'package:rao_academy/core/widgets/container_with_border.dart';
+// import 'package:EdTestz/core/theme/theme.dart';
+// import 'package:EdTestz/core/widgets/container_with_border.dart';
 
 Widget whitePopUp({
   required Widget icon,

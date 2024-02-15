@@ -5,21 +5,21 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/application/test/test_provider.dart';
-import 'package:rao_academy/core/theme/custom_scroll_behaviour.dart';
-import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/box_corner_list.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/core/widgets/test_rounded_coener_list.dart';
-import 'package:rao_academy/domain/entities/subject_list_entity.dart';
-import 'package:rao_academy/domain/entities/subjects_entity.dart';
-import 'package:rao_academy/presentation/analytics/widgets/pie_chart.dart';
-import 'package:rao_academy/presentation/analytics/widgets/strength.dart';
-import 'package:rao_academy/presentation/core/bottom_bar.dart';
-import 'package:rao_academy/presentation/core/drawer.dart';
-import 'package:rao_academy/presentation/home/homescreen.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/application/test/test_provider.dart';
+import 'package:EdTestz/core/theme/custom_scroll_behaviour.dart';
+import 'package:EdTestz/core/utli/error_handle.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/box_corner_list.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/core/widgets/test_rounded_coener_list.dart';
+import 'package:EdTestz/domain/entities/subject_list_entity.dart';
+import 'package:EdTestz/domain/entities/subjects_entity.dart';
+import 'package:EdTestz/presentation/analytics/widgets/pie_chart.dart';
+import 'package:EdTestz/presentation/analytics/widgets/strength.dart';
+import 'package:EdTestz/presentation/core/bottom_bar.dart';
+import 'package:EdTestz/presentation/core/drawer.dart';
+import 'package:EdTestz/presentation/home/homescreen.dart';
 
 import '../../core/widgets/rounded_corner_list.dart';
 
@@ -47,15 +47,15 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
 
     _subjectwiseValueList.clear();
 
-    if (_subjects.contains(_subjects.firstWhere(
-            (element) => element.name == 'Overall',
-            orElse: () => Subjects())) ==
-        false) {
-      _subjects.add(Subjects(
-        name: 'Overall',
-        id: 0,
-      ));
-    }
+    // if (_subjects.contains(_subjects.firstWhere(
+    //         (element) => element.name == 'Overall',
+    //         orElse: () => Subjects())) ==
+    //     false) {
+    //   _subjects.add(Subjects(
+    //     name: 'Overall',
+    //     id: 0,
+    //   ));
+    // }
     if (provider.analyticsEntity.subjectList?.contains(provider
             .analyticsEntity.subjectList
             ?.firstWhere((element) => element.name == 'Overall',
@@ -269,7 +269,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                               if (element.id ==  Provider.of<TestProvider>(context, listen: false).subjectId) {
                                  Provider.of<TestProvider>(context, listen: false).updateSubjectMap(element, reload: false);
                               }
-                              _subjects.add(Subjects.fromJson(element.toJson()));
+                              // _subjects.add(Subjects.fromJson(element.toJson()));
 
                               _subjectwiseValueList.add(element.confidence!.toDouble());
                             });

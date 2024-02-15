@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:rao_academy/domain/entities/test_start_entity.dart';
-import 'package:rao_academy/presentation/test_screens/test_types/dnd.dart';
-import 'package:rao_academy/presentation/test_screens/test_types/fill.dart';
-import 'package:rao_academy/presentation/test_screens/test_types/mcq.dart';
-import 'package:rao_academy/presentation/test_screens/test_types/msq.dart';
-import 'package:rao_academy/presentation/test_screens/test_types/mtf.dart';
-import 'package:rao_academy/presentation/test_screens/test_types/sequence.dart';
-import 'package:rao_academy/presentation/test_screens/test_types/tof.dart';
+import 'package:EdTestz/domain/entities/test_start_entity.dart';
+import 'package:EdTestz/presentation/test_screens/test_types/dnd.dart';
+import 'package:EdTestz/presentation/test_screens/test_types/fill.dart';
+import 'package:EdTestz/presentation/test_screens/test_types/mcq.dart';
+import 'package:EdTestz/presentation/test_screens/test_types/msq.dart';
+import 'package:EdTestz/presentation/test_screens/test_types/mtf.dart';
+import 'package:EdTestz/presentation/test_screens/test_types/sequence.dart';
+import 'package:EdTestz/presentation/test_screens/test_types/tof.dart';
 
 Widget getTestType(Question question, {required bool practice}) {
   switch (question.format) {

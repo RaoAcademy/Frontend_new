@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:rao_academy/domain/entities/monthwise_test.dart';
-import 'package:rao_academy/domain/entities/subjects_entity.dart';
+import 'package:EdTestz/domain/entities/monthwise_test.dart';
+import 'package:EdTestz/domain/entities/subjects_entity.dart';
 
 class TestHistoryEntity {
   TestHistoryEntity({this.subjects, required this.test});

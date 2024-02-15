@@ -1,18 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/auth/auth_provider.dart';
-import 'package:rao_academy/application/firebase/firebase_notification_provider.dart';
-import 'package:rao_academy/application/home/home_provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/application/test/test_provider.dart';
-import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/show_error_toast.dart';
-import 'package:rao_academy/domain/entities/recommendations_entity.dart';
-import 'package:rao_academy/presentation/home/homescreen.dart';
-import 'package:rao_academy/presentation/results/widgets/test_results.dart';
-import 'package:rao_academy/presentation/test_screens/test_instructions.dart';
-import 'package:rao_academy/presentation/test_screens/test_summary.dart';
+import 'package:EdTestz/application/auth/auth_provider.dart';
+import 'package:EdTestz/application/firebase/firebase_notification_provider.dart';
+import 'package:EdTestz/application/home/home_provider.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/application/test/test_provider.dart';
+import 'package:EdTestz/core/utli/error_handle.dart';
+import 'package:EdTestz/core/utli/show_error_toast.dart';
+import 'package:EdTestz/domain/entities/recommendations_entity.dart';
+import 'package:EdTestz/presentation/home/homescreen.dart';
+import 'package:EdTestz/presentation/results/widgets/test_results.dart';
+import 'package:EdTestz/presentation/test_screens/test_instructions.dart';
+import 'package:EdTestz/presentation/test_screens/test_summary.dart';
 
 import '../../presentation/test_screens/custom_test.dart';
 
@@ -50,6 +50,21 @@ Future<void> gotoSubscription(BuildContext context) async {
         .add('/subscription');
     await Navigator.of(context).pushNamed(
       '/subscription',
+    );
+  }).onError((error, stackTrace) async {
+    await handleError(error);
+  });
+}
+
+Future<void> gotoScheduledTests(BuildContext context) async {
+  await Provider.of<HomeProvider>(context, listen: false)
+      .fsubscription()
+      .then((_) async {
+    Provider.of<OtherProvider>(context, listen: false)
+        .routeNames
+        .add('/ScheduledTests');
+    await Navigator.of(context).pushNamed(
+      '/ScheduledTests',
     );
   }).onError((error, stackTrace) async {
     await handleError(error);

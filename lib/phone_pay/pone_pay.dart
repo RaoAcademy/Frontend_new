@@ -6,14 +6,14 @@ import 'dart:math';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rao_academy/phone_pay/fetchPaymentResult.dart';
-import 'package:rao_academy/presentation/core/success_popup.dart';
+import 'package:EdTestz/phone_pay/fetchPaymentResult.dart';
+import 'package:EdTestz/presentation/core/success_popup.dart';
 import 'package:http/http.dart' as http;
-import 'package:rao_academy/core/utli/api_client.dart';
+import 'package:EdTestz/core/utli/api_client.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-// import 'package:rao_academy/application/payment/payment_provider.dart';
+// import 'package:EdTestz/application/payment/payment_provider.dart';
 
 class PhonePayApp extends StatefulWidget {
   PhonePayApp(

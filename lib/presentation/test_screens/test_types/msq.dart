@@ -2,11 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/test/test_provider.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/domain/entities/test_start_entity.dart';
+import 'package:EdTestz/application/test/test_provider.dart';
+import 'package:EdTestz/core/utli/goto_pages.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/domain/entities/test_start_entity.dart';
 
 class MSQ extends StatefulWidget {
   const MSQ({
@@ -170,11 +170,11 @@ class _MSQState extends State<MSQ> {
                                           1
                                   ? 1.sp
                                   : 0.5.sp, */
-                              index ==
-                                      provider.selectedChoices[provider
-                                                  .currentQuestionPageIndex]
-                                              [index] -
-                                          1
+                          ( index ==
+                              provider.selectedChoices[provider
+                                  .currentQuestionPageIndex]
+                              [index] -
+                                  1 && !provider.refresh)
                                   ? 1.sp
                                   : 0.5.sp,
                           boxColor: /*  index ==
@@ -200,7 +200,7 @@ class _MSQState extends State<MSQ> {
                                           index ==
                                               provider.selectedChoice[provider
                                                       .currentQuestionPageIndex] -
-                                                  1) &&
+                                                  1 &&  !provider.refresh) &&
                                       provider.showAnswer
                                   ? LoopsColors.colorRed
                                   : !provider.showAnswer

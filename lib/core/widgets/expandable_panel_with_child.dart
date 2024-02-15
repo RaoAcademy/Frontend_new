@@ -1,7 +1,7 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
 
 Widget showExpandablePanelWC(String headerText, Widget child) {
   // final ExpandableController _controller = ExpandableController();

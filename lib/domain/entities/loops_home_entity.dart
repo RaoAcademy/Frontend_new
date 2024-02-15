@@ -1,6 +1,6 @@
-import 'package:rao_academy/domain/entities/faqs_entity.dart';
-import 'package:rao_academy/domain/entities/loops_entity.dart';
-import 'package:rao_academy/domain/entities/subjects_entity.dart';
+import 'package:EdTestz/domain/entities/faqs_entity.dart';
+import 'package:EdTestz/domain/entities/loops_entity.dart';
+import 'package:EdTestz/domain/entities/subjects_entity.dart';
 
 class LoopsHomeEntity {
   LoopsHomeEntity({this.fAQs, this.loops, this.subjects});

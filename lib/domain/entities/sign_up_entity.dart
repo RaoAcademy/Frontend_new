@@ -1,5 +1,5 @@
-import 'package:rao_academy/domain/entities/boards_entity.dart';
-import 'package:rao_academy/domain/entities/grades_entity.dart';
+import 'package:EdTestz/domain/entities/boards_entity.dart';
+import 'package:EdTestz/domain/entities/grades_entity.dart';
 
 class SignUpEntity {
   SignUpEntity({this.added, this.boards, this.grades});

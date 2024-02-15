@@ -3,11 +3,11 @@ import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
 import 'package:ippo_pay/ippo_pay.dart';
-import 'package:rao_academy/core/utli/api_client.dart';
-import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/logger.dart';
-// import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/domain/payment/payment_repo.dart';
+import 'package:EdTestz/core/utli/api_client.dart';
+import 'package:EdTestz/core/utli/error_handle.dart';
+import 'package:EdTestz/core/utli/logger.dart';
+// import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/domain/payment/payment_repo.dart';
 
 import '../../core/utli/loops_urls.dart';
 

@@ -1,6 +1,6 @@
-import 'package:rao_academy/domain/entities/concept_list.dart';
-import 'package:rao_academy/domain/entities/difficulty_level_list.dart';
-import 'package:rao_academy/domain/entities/loop_test_list.dart';
+import 'package:EdTestz/domain/entities/concept_list.dart';
+import 'package:EdTestz/domain/entities/difficulty_level_list.dart';
+import 'package:EdTestz/domain/entities/loop_test_list.dart';
 
 class Values {
   Values(

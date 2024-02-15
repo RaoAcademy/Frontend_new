@@ -1,13 +1,13 @@
-import 'package:rao_academy/domain/entities/app_version_entity.dart';
-import 'package:rao_academy/domain/entities/coupon_entity.dart';
-import 'package:rao_academy/domain/entities/faqs_entity.dart';
-import 'package:rao_academy/domain/entities/home_entity.dart';
-import 'package:rao_academy/domain/entities/home_reports_entity.dart';
-import 'package:rao_academy/domain/entities/notification_history_entity.dart';
-import 'package:rao_academy/domain/entities/referal_validate_entity.dart';
-import 'package:rao_academy/domain/entities/referral_entity.dart';
-import 'package:rao_academy/domain/entities/subscription_entity.dart';
-import 'package:rao_academy/domain/entities/video_entity.dart';
+import 'package:EdTestz/domain/entities/app_version_entity.dart';
+import 'package:EdTestz/domain/entities/coupon_entity.dart';
+import 'package:EdTestz/domain/entities/faqs_entity.dart';
+import 'package:EdTestz/domain/entities/home_entity.dart';
+import 'package:EdTestz/domain/entities/home_reports_entity.dart';
+import 'package:EdTestz/domain/entities/notification_history_entity.dart';
+import 'package:EdTestz/domain/entities/referal_validate_entity.dart';
+import 'package:EdTestz/domain/entities/referral_entity.dart';
+import 'package:EdTestz/domain/entities/subscription_entity.dart';
+import 'package:EdTestz/domain/entities/video_entity.dart';
 
 abstract class HomeRepo {
   Future<CouponEntity> fcoupon({String? coupon});

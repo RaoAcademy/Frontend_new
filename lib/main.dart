@@ -10,48 +10,50 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:injectable/injectable.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/providers.dart';
-import 'package:rao_academy/configure_firebase.dart';
-import 'package:rao_academy/core/theme/custom_scroll_behaviour.dart';
-import 'package:rao_academy/core/theme/theme.dart';
-import 'package:rao_academy/core/utli/http_client.dart';
-// import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/utli/willpop.dart';
-import 'package:rao_academy/core/widgets/colored_safe_area.dart';
-// import 'package:rao_academy/firebase_options.dart';
-import 'package:rao_academy/injection.dart';
-import 'package:rao_academy/presentation/analytics/analytics.dart';
-import 'package:rao_academy/presentation/auth/profile.dart';
-import 'package:rao_academy/presentation/auth/signin.dart';
-import 'package:rao_academy/presentation/auth/signin_otp.dart';
-import 'package:rao_academy/presentation/auth/signup_form.dart';
-import 'package:rao_academy/presentation/home/homescreen.dart';
-// import 'package:rao_academy/presentation/menu.dart';
-import 'package:rao_academy/presentation/other/bookmarks.dart';
-import 'package:rao_academy/presentation/other/faq.dart';
-import 'package:rao_academy/presentation/other/no_internet_screen.dart';
-// import 'package:rao_academy/presentation/other/instructions.dart';
-import 'package:rao_academy/presentation/other/notification.dart';
-import 'package:rao_academy/presentation/other/refer.dart';
-import 'package:rao_academy/presentation/other/subscription.dart';
-import 'package:rao_academy/presentation/other/support.dart';
-import 'package:rao_academy/presentation/reports/report.dart';
-import 'package:rao_academy/presentation/results/result.dart';
-// import 'package:rao_academy/presentation/results/sprint_history.dart';
-import 'package:rao_academy/presentation/results/widgets/test_results.dart';
-import 'package:rao_academy/presentation/splash/splash1.dart';
-import 'package:rao_academy/presentation/splash/splash_screen.dart';
-import 'package:rao_academy/presentation/test_screens/all_chapters.dart';
-import 'package:rao_academy/presentation/test_screens/concept_based.dart';
-import 'package:rao_academy/presentation/test_screens/custom_test.dart';
-import 'package:rao_academy/presentation/test_screens/test_history.dart';
-import 'package:rao_academy/presentation/test_screens/test_home.dart';
-import 'package:rao_academy/presentation/test_screens/test_instructions.dart';
-import 'package:rao_academy/presentation/test_screens/test_screen.dart';
-import 'package:rao_academy/presentation/test_screens/test_summary.dart';
-import 'package:rao_academy/presentation/test_screens/test_types/loops.dart';
+// import 'package:EdTestz/core/utli/error_handle.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/utli/willpop.dart';
+import 'package:EdTestz/core/widgets/colored_safe_area.dart';
+// import 'package:EdTestz/firebase_options.dart';
+import 'package:EdTestz/injection.dart';
+import 'package:EdTestz/presentation/Scheduled%20Tests/scheduled_tests.dart';
+import 'package:EdTestz/presentation/analytics/analytics.dart';
+import 'package:EdTestz/presentation/auth/profile.dart';
+import 'package:EdTestz/presentation/auth/signin.dart';
+import 'package:EdTestz/presentation/auth/signin_otp.dart';
+import 'package:EdTestz/presentation/auth/signup_form.dart';
+import 'package:EdTestz/presentation/home/homescreen.dart';
+// import 'package:EdTestz/presentation/menu.dart';
+import 'package:EdTestz/presentation/other/bookmarks.dart';
+import 'package:EdTestz/presentation/other/faq.dart';
+import 'package:EdTestz/presentation/other/no_internet_screen.dart';
+// import 'package:EdTestz/presentation/other/instructions.dart';
+import 'package:EdTestz/presentation/other/notification.dart';
+import 'package:EdTestz/presentation/other/refer.dart';
+import 'package:EdTestz/presentation/other/subscription.dart';
+import 'package:EdTestz/presentation/other/support.dart';
+import 'package:EdTestz/presentation/reports/report.dart';
+import 'package:EdTestz/presentation/results/result.dart';
+// import 'package:EdTestz/presentation/results/sprint_history.dart';
+import 'package:EdTestz/presentation/results/widgets/test_results.dart';
+import 'package:EdTestz/presentation/splash/splash1.dart';
+import 'package:EdTestz/presentation/splash/splash_screen.dart';
+import 'package:EdTestz/presentation/test_screens/all_chapters.dart';
+import 'package:EdTestz/presentation/test_screens/concept_based.dart';
+import 'package:EdTestz/presentation/test_screens/custom_test.dart';
+import 'package:EdTestz/presentation/test_screens/test_history.dart';
+import 'package:EdTestz/presentation/test_screens/test_home.dart';
+import 'package:EdTestz/presentation/test_screens/test_instructions.dart';
+import 'package:EdTestz/presentation/test_screens/test_screen.dart';
+import 'package:EdTestz/presentation/test_screens/test_summary.dart';
+import 'package:EdTestz/presentation/test_screens/test_types/loops.dart';
 import 'package:upgrader/upgrader.dart';
+
+import 'application/providers.dart';
+import 'configure_firebase.dart';
+import 'core/theme/custom_scroll_behaviour.dart';
+import 'core/theme/theme.dart';
+import 'core/utli/http_client.dart';
 ConnectivityResult connectivityResult = ConnectivityResult.none;
 bool isEnterHomeScreen = false;
 
@@ -221,6 +223,13 @@ checkInternetConnectity() async{
                           ? LoopsColors.colorWhite
                           : LoopsColors.colorBlack,
                       child: const SignIn(),
+                    );
+                  },'/ScheduledTests': (BuildContext context) {
+                    return ColoredSafeArea(
+                      color: isDarkMode
+                          ? LoopsColors.colorWhite
+                          : LoopsColors.colorBlack,
+                      child: const ScheduledTestsScreen(),
                     );
                   },
                   '/signInOTP': (BuildContext context) {

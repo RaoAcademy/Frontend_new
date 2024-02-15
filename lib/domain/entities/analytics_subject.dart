@@ -1,6 +1,6 @@
-import 'package:rao_academy/domain/entities/date_filter_entity.dart';
-import 'package:rao_academy/domain/entities/subjects_entity.dart';
-import 'package:rao_academy/domain/entities/values.dart';
+import 'package:EdTestz/domain/entities/date_filter_entity.dart';
+import 'package:EdTestz/domain/entities/subjects_entity.dart';
+import 'package:EdTestz/domain/entities/values.dart';
 
 class AnalyticsSubject {
   AnalyticsSubject({this.dateFilter, this.subjects, this.values});

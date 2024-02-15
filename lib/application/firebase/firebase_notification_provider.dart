@@ -3,10 +3,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-// import 'package:rao_academy/core/utli/copy_text.dart';
-import 'package:rao_academy/core/utli/logger.dart';
-import 'package:rao_academy/main.dart';
+import 'package:EdTestz/core/utli/goto_pages.dart';
+// import 'package:EdTestz/core/utli/copy_text.dart';
+import 'package:EdTestz/core/utli/logger.dart';
+import 'package:EdTestz/main.dart';
 
 String fcmTokenGlobal = '';
 

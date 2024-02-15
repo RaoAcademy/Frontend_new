@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:rao_academy/domain/entities/test_entity.dart';
+import 'package:EdTestz/domain/entities/test_entity.dart';
 
 class MonthWiseTests {
   MonthWiseTests({

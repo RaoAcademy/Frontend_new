@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rao_academy/core/widgets/arc.dart';
+import 'package:EdTestz/core/widgets/arc.dart';
 
 class SemiCircleWithRCorner extends StatelessWidget {
   const SemiCircleWithRCorner({

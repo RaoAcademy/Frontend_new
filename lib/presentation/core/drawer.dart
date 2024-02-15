@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:rao_academy/application/auth/auth_provider.dart';
-import 'package:rao_academy/application/home/home_provider.dart';
-import 'package:rao_academy/application/other/other_provider.dart';
-import 'package:rao_academy/core/utli/error_handle.dart';
-import 'package:rao_academy/core/utli/goto_pages.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/core/widgets/container_with_border.dart';
-import 'package:rao_academy/core/widgets/logout_popup.dart';
-import 'package:rao_academy/core/widgets/rate_app.dart';
-import 'package:rao_academy/presentation/other/widgets/cached_network_image.dart';
+import 'package:EdTestz/application/auth/auth_provider.dart';
+import 'package:EdTestz/application/home/home_provider.dart';
+import 'package:EdTestz/application/other/other_provider.dart';
+import 'package:EdTestz/core/utli/error_handle.dart';
+import 'package:EdTestz/core/utli/goto_pages.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/core/widgets/container_with_border.dart';
+import 'package:EdTestz/core/widgets/logout_popup.dart';
+import 'package:EdTestz/core/widgets/rate_app.dart';
+import 'package:EdTestz/presentation/other/widgets/cached_network_image.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -405,6 +405,36 @@ class _DrawerState extends State<DrawerWidget> {
                   height: 10,
                 ), */
                 ListTile(
+                  title: Row(
+                    children: [
+                      ContainerWithBorder(
+                        width: 32.sp,
+                        height: 32.sp,
+                        borderRadius: 120.sp,
+                        boxColor: Colors.transparent,
+                        child: Icon(
+                          Icons.schedule,
+                          size: 20.sp,
+                          color: LoopsColors.colorBlack,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 32.w,
+                      ),
+                      Text(
+                        'Scheduled Tests',
+                        style: TextStyle(
+                          color: LoopsColors.colorBlack,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
+                    ],
+                  ),
+                  onTap: () {
+                    gotoScheduledTests(context);
+                  },
+                ), ListTile(
                   title: Row(
                     children: [
                       ContainerWithBorder(

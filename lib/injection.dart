@@ -2,7 +2,7 @@
 
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rao_academy/injection.config.dart';
+import 'package:EdTestz/injection.config.dart';
 
 final GetIt getIt = GetIt.instance;
 

@@ -1,8 +1,8 @@
 import 'package:curved_progress_bar/curved_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rao_academy/core/utli/loops_urls.dart';
-import 'package:rao_academy/domain/entities/analytics_data_entity.dart';
+import 'package:EdTestz/core/utli/loops_urls.dart';
+import 'package:EdTestz/domain/entities/analytics_data_entity.dart';
 
 class CustomBarChart extends StatelessWidget {
   const CustomBarChart({
