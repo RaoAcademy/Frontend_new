@@ -31,153 +31,151 @@ showPopup01(BuildContext context, List<Subjects> subjectList,
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: SingleChildScrollView(
             child: Container(
-          //     height: 200,
-          // width: double.infinity,
-          // height: homeProvider.isBottomOpen ? MediaQuery.of(context).size.height / 0.4 : MediaQuery.of(context).size.height / 2.65,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: EdgeInsets.all(12.sp),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ContainerWithBorder(
-                        boxColor: LoopsColors.colorPink2,
-                        borderRadius: 100.sp,
-                        height: 65.sp,
-                        width: 65.sp,
-                        child: Center(
-                          child: LoopsImage(
-                            height: 65.h,
-                            width: 65.w,
-                            path: imagePath,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Column(
+              //     height: 200,
+              // width: double.infinity,
+              // height: homeProvider.isBottomOpen ? MediaQuery.of(context).size.height / 0.4 : MediaQuery.of(context).size.height / 2.65,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(12.sp),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        SizedBox(
-                          width: 260.w,
-                          child: Text(
-                            provider.loopsBottomSheetEntity.name ?? '',
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            maxLines: 2,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 6.h,
-                        ),
-                        Text(
-                          'Prepared by : ${provider.loopsBottomSheetEntity.preparedBy}',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w600,
-                            color:
-                            LoopsColors.textColor.withOpacity(0.5),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 6.h,
-                        ),
-                        SizedBox(
-                          height: 30.h,
-                          width: 260.w,
-                          child: ScrollConfiguration(
-                            behavior: MyBehavior(),
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: provider.loopsBottomSheetEntity
-                                  .tags !=
-                                  null
-                                  ? provider
-                                  .loopsBottomSheetEntity.tags!
-                                  .split(',')
-                                  .length
-                                  : 0,
-                              itemBuilder: (context, index) => Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 8.w, vertical: 2.h),
-                                  decoration: BoxDecoration(
-                                    color: LoopsColors.colorBlue3
-                                        .withOpacity(0.2),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(4.sp),
-                                    ),
-                                    // border: Border.all(
-                                    //   color: _chapterColor[index].withOpacity(0.2),
-                                    // ),
-                                  ),
-                                  height: 20.h,
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 4.h,
-                                      ),
-                                      Text(
-                                        provider.loopsBottomSheetEntity
-                                            .tags!
-                                            .split(',')[index],
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          color: LoopsColors.colorBlue3,
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ContainerWithBorder(
+                            boxColor: LoopsColors.colorPink2,
+                            borderRadius: 100.sp,
+                            height: 65.sp,
+                            width: 65.sp,
+                            child: Center(
+                              child: LoopsImage(
+                                height: 65.h,
+                                width: 65.w,
+                                path: imagePath,
                               ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                    /* IconButton(
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SizedBox(
+                              width: 260.w,
+                              child: Text(
+                                provider.loopsBottomSheetEntity.name ?? '',
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                maxLines: 2,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 6.h,
+                            ),
+                            Text(
+                              'Prepared by : ${provider.loopsBottomSheetEntity.preparedBy}',
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w600,
+                                color: LoopsColors.textColor.withOpacity(0.5),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 6.h,
+                            ),
+                            SizedBox(
+                              height: 30.h,
+                              width: 260.w,
+                              child: ScrollConfiguration(
+                                behavior: MyBehavior(),
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: provider
+                                              .loopsBottomSheetEntity.tags !=
+                                          null
+                                      ? provider.loopsBottomSheetEntity.tags!
+                                          .split(',')
+                                          .length
+                                      : 0,
+                                  itemBuilder: (context, index) => Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 8.w, vertical: 2.h),
+                                      decoration: BoxDecoration(
+                                        color: LoopsColors.colorBlue3
+                                            .withOpacity(0.2),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(4.sp),
+                                        ),
+                                        // border: Border.all(
+                                        //   color: _chapterColor[index].withOpacity(0.2),
+                                        // ),
+                                      ),
+                                      height: 20.h,
+                                      child: Column(
+                                        children: [
+                                          SizedBox(
+                                            height: 4.h,
+                                          ),
+                                          Text(
+                                            provider
+                                                .loopsBottomSheetEntity.tags!
+                                                .split(',')[index],
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: LoopsColors.colorBlue3,
+                                              fontSize: 12.sp,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        /* IconButton(
                               onPressed: () {},
                               icon: Icon(
                                 Icons.share_outlined,
                                 color: LoopsColors.textColor.withOpacity(0.5),
                                 size: 24.sp,
                               )) */
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 8.sp,
-                ),
-                child: Text(
-                  provider.loopsBottomSheetEntity.description!,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 1.sp,
+                      ],
+                    ),
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              // if (showTargetWarning == 1)
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 8.sp,
+                    ),
+                    child: Text(
+                      provider.loopsBottomSheetEntity.description!,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 1.sp,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  // if (showTargetWarning == 1)
 
-              SizedBox(
-                height: 5.h,
-              ),
-              /* Padding(
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  /* Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: 72.sp, vertical: 8.sp),
                       child: Row(
@@ -217,250 +215,247 @@ showPopup01(BuildContext context, List<Subjects> subjectList,
                         ],
                       ),
                     ), */
-              // Expanded(child: Container()),
-              Container(
-                height: 48.h,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      LoopsColors.primaryColor,
-                      LoopsColors.primaryColor,
-                      LoopsColors.primaryColor,
-                      LoopsColors.colorPink,
-                    ],
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                      height: 24.h,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: SizedBox(
-                            height: 2.h,
-                          ),
-                        ),
-                        SvgPicture.asset(
-                          'assets/icons/tests_page/target.svg',
-                          height: 24.sp,
-                          width: 24.sp,
-                        ),
-                        Expanded(
-                          child: SizedBox(
-                            height: 2.h,
-                          ),
-                        ),
-                        Text(
-                          'Target',
-                          style: TextStyle(
-                            fontSize: 8.sp,
-                            fontWeight: FontWeight.w600,
-                            color: LoopsColors.colorWhite,
-                          ),
-                        ),
-                        Expanded(
-                          child: SizedBox(
-                            height: 2.h,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 20.w,
-                    ),
-                    Container(
-                      // height: 22.h,
-                      width: 60.w,
-                      decoration: BoxDecoration(
-                        color: LoopsColors.selectedColor,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(4.sp),
-                        ),
+                  // Expanded(child: Container()),
+                  Container(
+                    height: 48.h,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          LoopsColors.primaryColor,
+                          LoopsColors.primaryColor,
+                          LoopsColors.primaryColor,
+                          LoopsColors.colorPink,
+                        ],
                       ),
-                      child: Center(
-                        child: Row(
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                        Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Expanded(
-                              child: CustomTextField(
-                                inputType: TextInputType.number,
-                                onChanged: (p0) {
-                                  if (p0.isNotEmpty) {
-                                    if ((int.parse(p0) <= 0) ||
-                                        (int.parse(p0) > 100)) {
-                                      showTargetWarning = 1;
-                                      provider.loopTarget = null;
-                                      if (kDebugMode) {
-                                        print(showTargetWarning);
-                                      }
-                                      provider.setState();
-                                    } else {
-                                      showTargetWarning = 0;
-                                      provider.loopTarget =
-                                          int.parse(p0);
-                                    }
-                                  } else {
-                                    showTargetWarning = 1;
-                                    provider.loopTarget = null;
-                                  }
-                                },
-                                smallSize: true,
-                                hintText: provider
-                                    .loopsBottomSheetEntity.target
-                                    ?.toString() ??
-                                    '0',
+                              child: SizedBox(
+                                height: 2.h,
+                              ),
+                            ),
+                            SvgPicture.asset(
+                              'assets/icons/tests_page/target.svg',
+                              height: 24.sp,
+                              width: 24.sp,
+                            ),
+                            Expanded(
+                              child: SizedBox(
+                                height: 2.h,
                               ),
                             ),
                             Text(
-                              ' %',
+                              'Target',
                               style: TextStyle(
-                                fontSize: 12.sp,
+                                fontSize: 8.sp,
                                 fontWeight: FontWeight.w600,
-                                color: LoopsColors.colorBlue2,
+                                color: LoopsColors.colorWhite,
+                              ),
+                            ),
+                            Expanded(
+                              child: SizedBox(
+                                height: 2.h,
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20.w,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        if (kDebugMode) {
-                          print("TEST_DEBUG-X");
-                          print(showTargetWarning);
-                          // print(testId);
-                          print(provider.loopsBottomSheetEntity.name);
-
-                          print(provider
-                              .loopsBottomSheetEntity.userTestId);
-                        }
-                        if (kDebugMode) {
-                          print("CHECK");
-                          print(showTargetWarning);
-                          print(provider.loopTarget);
-                        }
-                        if ((showTargetWarning != 1) &&
-                            (provider.loopTarget != null)) {
-                          if (kDebugMode) {
-                            print("PROVIDER");
-                            print(showTargetWarning);
-                          }
-                          gotoStartTest(
-                              context,
-                              TestEntity(
-                                testId: testId,
-                                // userTestId: provider
-                                //     .loopsBottomSheetEntity.userTestId,
-                              ),
-                              fromCustomTest: false,
-                              practiceId: null);
-                        } else {
-                          if (kDebugMode) {
-                            print(showTargetWarning);
-                          }
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(
-                                        Radius.circular(16))),
-                                title: Text("Target Warning!",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18)),
-                                content: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                        "Set a Target 1 to 100 achieve from this chapter",
-                                        style: TextStyle(
-                                            color: Colors.black54,
-                                            fontSize: 16),
-                                        textAlign: TextAlign.center),
-                                    SizedBox(
-                                      height: 14,
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Container(
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFF0F6FFF),
-                                              borderRadius:
-                                              BorderRadius.circular(
-                                                  16)),
-                                          child: Padding(
-                                            padding: const EdgeInsets
-                                                .symmetric(
-                                                horizontal: 22,
-                                                vertical: 10),
-                                            child: Text(
-                                              "Ok",
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                          )),
-                                    )
-                                  ],
-                                ),
-                              );
-                            },
-                          );
-                        }
-
-                        // Navigator.pop(context);
-                      },
-                      child: Container(
-                        height: 26.h,
-                        width: 61.w,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              LoopsColors.primaryColor,
-                              LoopsColors.colorPink,
-                            ],
-                          ),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(12.sp),
-                          ),
-                          border: Border.all(
-                            width: 1.sp,
-                            color: LoopsColors.colorWhite,
-                          ),
+                        SizedBox(
+                          width: 20.w,
                         ),
-                        child: Center(
-                          child: Text(
-                            'Start',
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w600,
-                              color: LoopsColors.colorWhite,
+                        Container(
+                          // height: 22.h,
+                          width: 60.w,
+                          decoration: BoxDecoration(
+                            color: LoopsColors.selectedColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(4.sp),
+                            ),
+                          ),
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child: CustomTextField(
+                                    inputType: TextInputType.number,
+                                    onChanged: (p0) {
+                                      if (p0.isNotEmpty) {
+                                        if ((int.parse(p0) <= 0) ||
+                                            (int.parse(p0) > 100)) {
+                                          showTargetWarning = 1;
+                                          provider.loopTarget = null;
+                                          if (kDebugMode) {
+                                            print(showTargetWarning);
+                                          }
+                                          provider.setState();
+                                        } else {
+                                          showTargetWarning = 0;
+                                          provider.loopTarget = int.parse(p0);
+                                        }
+                                      } else {
+                                        showTargetWarning = 1;
+                                        provider.loopTarget = null;
+                                      }
+                                    },
+                                    smallSize: true,
+                                    hintText: provider
+                                            .loopsBottomSheetEntity.target
+                                            ?.toString() ??
+                                        '0',
+                                  ),
+                                ),
+                                Text(
+                                  ' %',
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: LoopsColors.colorBlue2,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                      ),
+                        SizedBox(
+                          width: 20.w,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            if (kDebugMode) {
+                              print("TEST_DEBUG-X");
+                              print(showTargetWarning);
+                              // print(testId);
+                              print(provider.loopsBottomSheetEntity.name);
+
+                              print(provider.loopsBottomSheetEntity.userTestId);
+                            }
+                            if (kDebugMode) {
+                              print("CHECK");
+                              print(showTargetWarning);
+                              print(provider.loopTarget);
+                            }
+                            if ((showTargetWarning != 1) &&
+                                (provider.loopTarget != null)) {
+                              if (kDebugMode) {
+                                print("PROVIDER");
+                                print(showTargetWarning);
+                              }
+                              gotoStartTest(
+                                  context,
+                                  TestEntity(
+                                    testId: testId,
+                                    // userTestId: provider
+                                    //     .loopsBottomSheetEntity.userTestId,
+                                  ),
+                                  fromCustomTest: false,
+                                  practiceId: null);
+                            } else {
+                              if (kDebugMode) {
+                                print(showTargetWarning);
+                              }
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(16))),
+                                    title: Text("Target Warning!",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.black, fontSize: 18)),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                            "Set a Target 1 to 100 achieve from this chapter",
+                                            style: TextStyle(
+                                                color: Colors.black54,
+                                                fontSize: 16),
+                                            textAlign: TextAlign.center),
+                                        SizedBox(
+                                          height: 14,
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: Color(0xFF0F6FFF),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16)),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 22,
+                                                        vertical: 10),
+                                                child: Text(
+                                                  "Ok",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              )),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            }
+
+                            // Navigator.pop(context);
+                          },
+                          child: Container(
+                            height: 26.h,
+                            width: 61.w,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  LoopsColors.primaryColor,
+                                  LoopsColors.colorPink,
+                                ],
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(12.sp),
+                              ),
+                              border: Border.all(
+                                width: 1.sp,
+                                color: LoopsColors.colorWhite,
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Start',
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: LoopsColors.colorWhite,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: 24.h,
-                    ),
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: 24.h,
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 24.h,
-              ),
-            ],
-          ),
             ),
           ));
     },
@@ -1038,7 +1033,7 @@ Future showPopup03(BuildContext context, List<Subjects> subjectList,
                     ),
                   ),
                   SizedBox(
-                    height: 24.h,
+                    height: 18.h,
                   ),
                   /*  Padding(
                     padding:
@@ -1374,12 +1369,12 @@ Future showPopup03(BuildContext context, List<Subjects> subjectList,
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 24.h,
-                  ),
-                  SizedBox(
-                    height: 24.h,
-                  ),
+                  // SizedBox(
+                  //   height: 24.h,
+                  // ),
+                  // SizedBox(
+                  //   height: 24.h,
+                  // ),
                 ],
               ),
             ),

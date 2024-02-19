@@ -41,6 +41,9 @@ class _MSQState extends State<MSQ> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<TestProvider>();
+    if (kDebugMode) {
+      print('my selected options:' + provider.response);
+    }
     return Column(
       children: [
         /* Row(
@@ -142,7 +145,6 @@ class _MSQState extends State<MSQ> {
                               }
                             });
                           }
-
                         },
                         child: ContainerWithBorder(
                           constraints: BoxConstraints(
@@ -170,11 +172,12 @@ class _MSQState extends State<MSQ> {
                                           1
                                   ? 1.sp
                                   : 0.5.sp, */
-                          ( index ==
-                              provider.selectedChoices[provider
-                                  .currentQuestionPageIndex]
-                              [index] -
-                                  1 && !provider.refresh)
+                              (index ==
+                                          provider.selectedChoices[provider
+                                                      .currentQuestionPageIndex]
+                                                  [index] -
+                                              1 &&
+                                      !provider.refresh)
                                   ? 1.sp
                                   : 0.5.sp,
                           boxColor: /*  index ==
@@ -184,8 +187,7 @@ class _MSQState extends State<MSQ> {
                               ? LoopsColors.secondaryColor
                               :  */
                               LoopsColors.colorWhite,
-                          borderColor:
-    (widget.question.answer
+                          borderColor: (widget.question.answer
                                           ?.contains((index + 1).toString()) ??
                                       false)
                                   /* && provider.selectedChoice[
@@ -200,14 +202,15 @@ class _MSQState extends State<MSQ> {
                                           index ==
                                               provider.selectedChoice[provider
                                                       .currentQuestionPageIndex] -
-                                                  1 &&  !provider.refresh) &&
+                                                  1 &&
+                                          !provider.refresh) &&
                                       provider.showAnswer
                                   ? LoopsColors.colorRed
                                   : !provider.showAnswer
                                       ? LoopsColors.primaryColor
                                       : LoopsColors.colorRed,
 
-                         /*  index ==
+                          /*  index ==
                                   provider.selectedChoices[provider
                                           .currentQuestionPageIndex][index] -
                                       1
@@ -231,8 +234,10 @@ class _MSQState extends State<MSQ> {
                                                 : 'd.',
                                     style: TextStyle(
                                         color: LoopsColors.textColor,
-                                        fontWeight: provider.selectedChoices[provider
-                                                        .currentQuestionPageIndex][index] -
+                                        fontWeight: provider.selectedChoices[
+                                                            provider
+                                                                .currentQuestionPageIndex]
+                                                        [index] -
                                                     1 ==
                                                 index
                                             ? FontWeight.w600
@@ -334,7 +339,7 @@ void setOptionLength(BuildContext context) {
         _maxWidthChoice = MediaQuery.of(context).size.width;
       } */
     } else {
-      gotoTestSummary(context, provider.testStart.userTestId!.toInt(),false);
+      gotoTestSummary(context, provider.testStart.userTestId!.toInt(), false);
     }
     // ignore: avoid_catches_without_on_clauses
   } catch (_) {

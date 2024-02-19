@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class LoopsUrls {
   //Base Path
-  // static String baseUrl = 'https://raoacademy.com'; //raoacademy.com
-  static String baseUrl = 'http://3.6.139.218'; //raoacademy.com
+  static String baseUrl = 'https://raoacademy.com'; //raoacademy.com
+  // static String baseUrl = 'http://3.6.139.218'; //raoacademy.com
   static String fsignup = '/fsignup/';
   static String flogin = '/flogin/';
   static String fuserActive = '/fuserActive/';

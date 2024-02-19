@@ -59,6 +59,7 @@ dependencies:
   open_filex: ^4.3.2
   connectivity_plus: ^4.0.1
   expandable_bottom_sheet: ^1.1.1+1
+  http: ^0.13.6
 
 dependency_overrides:
   firebase_core_platform_interface: ^4.5.2

@@ -86,10 +86,23 @@ class TestProvider with ChangeNotifier {
 
   final List<List<AnalyticData>> difficultyTypeAccuracy = [];
 
-
-  resetAnswer(){
+  resetAnswer() {
     refresh = true;
     notifyListeners();
+  }
+
+  // Map to store selected options for each question
+  Map<int, int> selectedOptions = {};
+
+  // Method to update selected option for a question
+  void updateSelectedOption(int questionId, int selectedOption) {
+    selectedOptions[questionId] = selectedOption;
+    notifyListeners();
+  }
+
+  // Method to get selected option for a question
+  int getSelectedOption(int questionId) {
+    return selectedOptions[questionId] ?? -1;
   }
 
   List<String> subjectListx = [
@@ -140,35 +153,32 @@ class TestProvider with ChangeNotifier {
   List<bool?> boolChoice = List.filled(1000, null);
   List<List<int>> selectedChoices = List.filled(1000, List.filled(1000, -1));
 
-  Future<void> ftestStart({
-    TestEntity? testEntity,
-    String? customName,
-    String? chapterIds,
-    String? conceptIds,
-    String? customConceptIds,
-    String? customLevels,
-    String? customFormats,
-    String? questionIds,
-    String? practiceId
-  }) async {
+  Future<void> ftestStart(
+      {TestEntity? testEntity,
+      String? customName,
+      String? chapterIds,
+      String? conceptIds,
+      String? customConceptIds,
+      String? customLevels,
+      String? customFormats,
+      String? questionIds,
+      String? practiceId}) async {
     if (testEntity != null) {
       this.testEntity = testEntity;
     }
 
-
     testStart = await repo.ftestStart(
-      testID: testEntity?.testId?.toInt(),
-      userTestId: testEntity?.userTestId?.toInt(),
-      loopTarget: loopTarget,
-      chapterIds: chapterIds,
-      customConceptIds: customConceptIds,
-      customFormats: customFormats,
-      customLevels: customLevels,
-      subjectId: subjectId,
-      customName: customName,
-      questionIds: questionIds,
-      practiceId: practiceId
-    );
+        testID: testEntity?.testId?.toInt(),
+        userTestId: testEntity?.userTestId?.toInt(),
+        loopTarget: loopTarget,
+        chapterIds: chapterIds,
+        customConceptIds: customConceptIds,
+        customFormats: customFormats,
+        customLevels: customLevels,
+        subjectId: subjectId,
+        customName: customName,
+        questionIds: questionIds,
+        practiceId: practiceId);
     timeTake = List.filled(1000, 0);
     bookmarkQuestion = List.filled(1000, false);
     selectedChoice = List.filled(1000, -1);
@@ -228,21 +238,25 @@ class TestProvider with ChangeNotifier {
       this.testEntity = testEntity;
     }
     testInstructionsEntity = await repo.ftestInstructions(
-      userTestId: testEntity?.leftTop?.toUpperCase().trim() == 'PRACTICE' || testType?.toUpperCase().trim() == "PRACTICE" || testType == "Concept based" || testType == "Custom Test"
-          ? practiceId == null ?  testEntity?.userTestId : int.parse(practiceId)
-          : null,
-      // testID:testType?.toUpperCase().trim() != "PRACTICE" ?  !(testEntity?.leftTop?.toUpperCase().trim() == 'PRACTICE')
-      //     ? testEntity?.testId?.toInt()
-      //     : null : null,
+        userTestId: testEntity?.leftTop?.toUpperCase().trim() == 'PRACTICE' ||
+                testType?.toUpperCase().trim() == "PRACTICE" ||
+                testType == "Concept based" ||
+                testType == "Custom Test"
+            ? practiceId == null
+                ? testEntity?.userTestId
+                : int.parse(practiceId)
+            : null,
+        // testID:testType?.toUpperCase().trim() != "PRACTICE" ?  !(testEntity?.leftTop?.toUpperCase().trim() == 'PRACTICE')
+        //     ? testEntity?.testId?.toInt()
+        //     : null : null,
         testID: testEntity?.testId?.toInt() ?? null,
-      customName: customName,
-      customConceptIds: customConceptIds,
-      customFormats: customFormats,
-      customLevels: customLevels,
-      chaptersId: chaptersId,
-      questionsId: questionsId,
-      practiceId: practiceId
-    );
+        customName: customName,
+        customConceptIds: customConceptIds,
+        customFormats: customFormats,
+        customLevels: customLevels,
+        chaptersId: chaptersId,
+        questionsId: questionsId,
+        practiceId: practiceId);
     notifyListeners();
   }
 
@@ -262,6 +276,28 @@ class TestProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  // Future<void> fquestionNext(int? userTestId) async {
+  //   await repo
+  //       .fquestionNext(
+  //     userTestId!,
+  //     questionId,
+  //     response,
+  //     timetaken,
+  //     review: review,
+  //   )
+  //       .then((result) {
+  //     result.fold((l) => null, (r) {
+  //       r.question?.forEach((element) {
+  //         testStart.question?.add(element);
+  //       });
+  //     });
+  //   });
+
+  //   response = '';
+  //   indexOfAcceptedItem = -1;
+  //   notifyListeners();
+  // }
+//new sourav
   Future<void> fquestionNext(int? userTestId) async {
     await repo
         .fquestionNext(
@@ -278,6 +314,10 @@ class TestProvider with ChangeNotifier {
         });
       });
     });
+
+    // Clear the selected choices for the current question
+    // selectedChoices[currentQuestionPageIndex]
+    //     .fillRange(0, selectedChoices[currentQuestionPageIndex].length, -1);
 
     response = '';
     indexOfAcceptedItem = -1;
@@ -337,7 +377,6 @@ class TestProvider with ChangeNotifier {
     response = '';
     timetaken = 0;
     review = false;
-
   }
 
   void updateSubjectMap(SubjectList element, {required bool reload}) {
@@ -357,7 +396,7 @@ class TestProvider with ChangeNotifier {
       subjectMap.update('Accuracy', (value) => element.accuracy);
       subjectMapAll.update('Accuracy', (value) => analyticsEntity.allAccuracy);
 
-       subjectwisePerformanceValues.add(element.loop!.toDouble());
+      subjectwisePerformanceValues.add(element.loop!.toDouble());
       subjectwisePerformanceValues.add(element.tests!.toDouble());
       subjectwisePerformanceValues.add(element.custom!.toDouble());
       subjectwisePerformanceValues.add(element.other!.toDouble());
