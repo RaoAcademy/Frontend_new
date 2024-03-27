@@ -33,6 +33,20 @@ class AuthAppProvider with ChangeNotifier {
   );
   final AuthRepo repo;
 
+  void disposeControllers() {
+    phoneController.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
+    dobController.dispose();
+    boardController.dispose();
+    classController.dispose();
+    schoolController.dispose();
+    codeController.dispose();
+    parentController.dispose();
+    lastResultController.dispose();
+    otpController.dispose();
+  }
+
   bool locationPermission = false;
   bool waiting = false;
   bool authenticated = false;
@@ -81,6 +95,7 @@ class AuthAppProvider with ChangeNotifier {
     try {
       final appDir = (await getTemporaryDirectory()).path;
       await Directory(appDir).delete(recursive: true);
+      disposeControllers();
       // ignore: avoid_catches_without_on_clauses
     } catch (e) {
       await handleError(e);

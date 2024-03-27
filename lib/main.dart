@@ -1,15 +1,11 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:in_app_update/in_app_update.dart';
-import 'package:injectable/injectable.dart';
-import 'package:provider/provider.dart';
+import 'package:EdTestz/application/providers.dart';
+import 'package:EdTestz/configure_firebase.dart';
+import 'package:EdTestz/core/theme/custom_scroll_behaviour.dart';
+import 'package:EdTestz/core/theme/theme.dart';
+import 'package:EdTestz/core/utli/http_client.dart';
 // import 'package:EdTestz/core/utli/error_handle.dart';
 import 'package:EdTestz/core/utli/loops_urls.dart';
 import 'package:EdTestz/core/utli/willpop.dart';
@@ -47,13 +43,17 @@ import 'package:EdTestz/presentation/test_screens/test_instructions.dart';
 import 'package:EdTestz/presentation/test_screens/test_screen.dart';
 import 'package:EdTestz/presentation/test_screens/test_summary.dart';
 import 'package:EdTestz/presentation/test_screens/test_types/loops.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:in_app_update/in_app_update.dart';
+import 'package:injectable/injectable.dart';
+import 'package:provider/provider.dart';
 import 'package:upgrader/upgrader.dart';
 
-import 'application/providers.dart';
-import 'configure_firebase.dart';
-import 'core/theme/custom_scroll_behaviour.dart';
-import 'core/theme/theme.dart';
-import 'core/utli/http_client.dart';
 ConnectivityResult connectivityResult = ConnectivityResult.none;
 bool isEnterHomeScreen = false;
 
@@ -61,7 +61,7 @@ Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  connectivityResult = await (Connectivity().checkConnectivity());
+  connectivityResult = await Connectivity().checkConnectivity();
   await Upgrader.clearSavedSettings();
   configureInjection(Environment.dev);
   await configureApp();
@@ -92,35 +92,36 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  StreamSubscription<ConnectivityResult>? _subscription;
+  bool isAttampNoInternet = false;
 
-StreamSubscription<ConnectivityResult>? _subscription;
-bool isAttampNoInternet = false;
-
-
-checkInternetConnectity() async{
-   connectivityResult = await (Connectivity().checkConnectivity());
-  if (connectivityResult == ConnectivityResult.mobile) {
-    // I am connected to a mobile network.
-  } else if (connectivityResult == ConnectivityResult.wifi) {
-    // I am connected to a wifi network.
-  } else if (connectivityResult == ConnectivityResult.ethernet) {
-    // I am connected to a ethernet network.
-  } else if (connectivityResult == ConnectivityResult.vpn) {
-    // I am connected to a vpn network.
-    // Note for iOS and macOS:
-    // There is no separate network interface type for [vpn].
-    // It returns [other] on any device (also simulator)
-  } else if (connectivityResult == ConnectivityResult.bluetooth) {
-    // I am connected to a bluetooth.
-  } else if (connectivityResult == ConnectivityResult.other) {
-    // I am connected to a network which is not in the above mentioned networks.
-  } else if (connectivityResult == ConnectivityResult.none) {
-    isAttampNoInternet = true;
-    Navigator.push(navigatorKey.currentContext!, MaterialPageRoute(builder: (context) => NoInternetScreen(),));
-    // I am not connected to any network.
+  checkInternetConnectity() async {
+    connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.mobile) {
+      // I am connected to a mobile network.
+    } else if (connectivityResult == ConnectivityResult.wifi) {
+      // I am connected to a wifi network.
+    } else if (connectivityResult == ConnectivityResult.ethernet) {
+      // I am connected to a ethernet network.
+    } else if (connectivityResult == ConnectivityResult.vpn) {
+      // I am connected to a vpn network.
+      // Note for iOS and macOS:
+      // There is no separate network interface type for [vpn].
+      // It returns [other] on any device (also simulator)
+    } else if (connectivityResult == ConnectivityResult.bluetooth) {
+      // I am connected to a bluetooth.
+    } else if (connectivityResult == ConnectivityResult.other) {
+      // I am connected to a network which is not in the above mentioned networks.
+    } else if (connectivityResult == ConnectivityResult.none) {
+      isAttampNoInternet = true;
+      await Navigator.push(
+          navigatorKey.currentContext!,
+          MaterialPageRoute(
+            builder: (context) => const NoInternetScreen(),
+          ));
+      // I am not connected to any network.
+    }
   }
-}
-
 
   @override
   void initState() {
@@ -129,41 +130,49 @@ checkInternetConnectity() async{
     checkInternetConnectity();
     _subscription = Connectivity().onConnectivityChanged.listen((event) {
       connectivityResult = event;
-      if(connectivityResult == ConnectivityResult.mobile){
+      if (connectivityResult == ConnectivityResult.mobile) {
         if (kDebugMode) {
-          print("-------------Internet---------------");
+          print('-------------Internet---------------');
         }
-        if(isAttampNoInternet){
-          if(isEnterHomeScreen){
+        if (isAttampNoInternet) {
+          if (isEnterHomeScreen) {
             Navigator.pop(navigatorKey.currentContext!);
-
-          }else{
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => SplashScreen(),), (route) => false);
+          } else {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SplashScreen(),
+                ),
+                (route) => false);
           }
-
         }
-
-      }else if(connectivityResult == ConnectivityResult.wifi){
+      } else if (connectivityResult == ConnectivityResult.wifi) {
         if (kDebugMode) {
-          print("-------------Internet---------------");
+          print('-------------Internet---------------');
         }
-        if(isAttampNoInternet){
-          if(isEnterHomeScreen){
+        if (isAttampNoInternet) {
+          if (isEnterHomeScreen) {
             Navigator.pop(navigatorKey.currentContext!);
-
-          }else{
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => SplashScreen(),), (route) => false);
+          } else {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SplashScreen(),
+                ),
+                (route) => false);
           }
-
         }
-      }else{
-
-          isAttampNoInternet = true;
-          Navigator.push(navigatorKey.currentContext!, MaterialPageRoute(builder: (context) => NoInternetScreen(),));
-
+      } else {
+        isAttampNoInternet = true;
+        Navigator.push(
+            navigatorKey.currentContext!,
+            MaterialPageRoute(
+              builder: (context) => const NoInternetScreen(),
+            ));
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     // Future.delayed(const Duration(milliseconds: 1)).then(
@@ -224,7 +233,8 @@ checkInternetConnectity() async{
                           : LoopsColors.colorBlack,
                       child: const SignIn(),
                     );
-                  },'/ScheduledTests': (BuildContext context) {
+                  },
+                  '/ScheduledTests': (BuildContext context) {
                     return ColoredSafeArea(
                       color: isDarkMode
                           ? LoopsColors.colorWhite
@@ -291,7 +301,7 @@ checkInternetConnectity() async{
                   '/results': (BuildContext context) {
                     final args = ModalRoute.of(context)!.settings.arguments
                         as Map<String, dynamic>;
-                    final index = (args['index'] as int);
+                    final index = args['index'] as int;
                     return ColoredSafeArea(
                       color: isDarkMode
                           ? LoopsColors.colorWhite
@@ -378,7 +388,7 @@ checkInternetConnectity() async{
                       color: isDarkMode
                           ? LoopsColors.colorWhite
                           : LoopsColors.colorBlack,
-                      child:  TestHistory(),
+                      child: TestHistory(),
                     );
                   },
                   '/support': (BuildContext context) {
@@ -426,7 +436,7 @@ checkInternetConnectity() async{
                       color: isDarkMode
                           ? LoopsColors.colorWhite
                           : LoopsColors.colorBlack,
-                      child:  SprintHome(testName: ""),
+                      child: SprintHome(testName: ''),
                     );
                   },
                   '/reports': (BuildContext context) {
@@ -450,7 +460,7 @@ checkInternetConnectity() async{
                       color: isDarkMode
                           ? LoopsColors.colorWhite
                           : LoopsColors.colorBlack,
-                      child:  TestSummary(isShowResumeButton: true),
+                      child: TestSummary(isShowResumeButton: true),
                     );
                   },
                   '/allChapters': (BuildContext context) {
@@ -474,7 +484,7 @@ checkInternetConnectity() async{
                       color: isDarkMode
                           ? LoopsColors.colorWhite
                           : LoopsColors.colorBlack,
-                      child:  TestInstructions(testType: ""),
+                      child: TestInstructions(testType: ''),
                     );
                   },
                   '/sprintHistory': (BuildContext context) {
@@ -482,7 +492,7 @@ checkInternetConnectity() async{
                       color: isDarkMode
                           ? LoopsColors.colorWhite
                           : LoopsColors.colorBlack,
-                      child:  SprintHome(testName: ""),
+                      child: SprintHome(testName: ''),
                     );
                   },
                   /*  '/fill': (BuildContext context) {

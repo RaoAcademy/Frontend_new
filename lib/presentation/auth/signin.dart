@@ -92,7 +92,7 @@ class SignIn extends StatelessWidget {
                   inputType: TextInputType.phone,
                   validator: LoopsValidation.phoneNumber,
                   onTap: () {
-                    _formKey.currentState!.reset();
+                    _formKey.currentState?.reset();
                   },
                   maxLength: 10,
                 ),

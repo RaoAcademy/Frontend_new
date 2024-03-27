@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -237,9 +239,9 @@ Future<void> gotoTestInstructions(
   String? questionsId,
   String? chaptersId,
   String? practiceId,
-      required String testType,
+  required String testType,
   bool fromCustomTest = false,
-      bool isPrecticeTest = false,
+  bool isPrecticeTest = false,
 }) async {
   Provider.of<TestProvider>(context, listen: false).fromCustomTest =
       fromCustomTest;
@@ -259,15 +261,17 @@ Future<void> gotoTestInstructions(
           customFormats: customFormats,
           customLevels: customLevels,
           chaptersId: chaptersId,
-          questionsId: questionsId,testType: testType,
+          questionsId: questionsId,
+          testType: testType,
           practiceId: practiceId,
           testEntity: testEntity)
       .then((_) async {
     Provider.of<TestProvider>(context, listen: false).practice =
-        testEntity?.leftTop?.toUpperCase().trim() == 'PRACTICE' || testType?.toUpperCase().trim() == "PRACTICE";
-    if(isPrecticeTest){
+        testEntity?.leftTop?.toUpperCase().trim() == 'PRACTICE' ||
+            testType.toUpperCase().trim() == 'PRACTICE';
+    if (isPrecticeTest) {
       Provider.of<TestProvider>(context, listen: false).practice = true;
-    }else{
+    } else {
       Provider.of<TestProvider>(context, listen: false).practice = false;
     }
     Provider.of<OtherProvider>(context, listen: false)
@@ -277,35 +281,39 @@ Future<void> gotoTestInstructions(
     //   context,
     //   '/testInstructions',
     // );
-    await Navigator.push(context, MaterialPageRoute(builder: (context) => TestInstructions(isResume: isPrecticeTest,testType: testType.isEmpty ? testEntity?.leftTop ?? "" : testType),));
+    await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => TestInstructions(
+              isResume: isPrecticeTest,
+              testType:
+                  testType.isEmpty ? testEntity?.leftTop ?? '' : testType),
+        ));
   }).onError((error, stackTrace) async {
     await handleError(error);
   });
 }
 
-Future<void> gotoStartTest(
-  BuildContext context,
-  TestEntity testEntity, {
-  required bool fromCustomTest,
-      required String? practiceId
-}) async {
+Future<void> gotoStartTest(BuildContext context, TestEntity testEntity,
+    {required bool fromCustomTest, required String? practiceId}) async {
   if (fromCustomTest) {
     if (kDebugMode) {
-      print("AA-1");
+      print('AA-1');
       // print(provider.fromCustomTest);
     }
     await Provider.of<TestProvider>(context, listen: false)
         .ftestStart(
-       // conceptIds: context.read<TestProvider>().customTestEntity.conceptIds!,
-        customName: controllerCustom.text,
-        chapterIds: selectedChapters.join(","),
-        customConceptIds: selectedConcepts.join(","),
-        customFormats: selectedFormats.join(","),
-        customLevels: selectedLevels.join(","),
-        testEntity: testEntity,
-        questionIds: context.read<TestProvider>().customTestEntity.questionIds,
-        practiceId: practiceId
-    ).then((value) async {
+            // conceptIds: context.read<TestProvider>().customTestEntity.conceptIds!,
+            customName: controllerCustom.text,
+            chapterIds: selectedChapters.join(','),
+            customConceptIds: selectedConcepts.join(','),
+            customFormats: selectedFormats.join(','),
+            customLevels: selectedLevels.join(','),
+            testEntity: testEntity,
+            questionIds:
+                context.read<TestProvider>().customTestEntity.questionIds,
+            practiceId: practiceId)
+        .then((value) async {
       Provider.of<OtherProvider>(context, listen: false)
           .routeNames
           .add('/testScreen');
@@ -314,38 +322,47 @@ Future<void> gotoStartTest(
         '/testScreen',
       );
     });
-
   } else {
     if (kDebugMode) {
-      print("AA-2");
+      print('AA-2');
       print(testEntity.userTestId);
       // print(provider.fromCustomTest);
     }
-      // if(practiceId == null){
-      //   Provider.of<TestProvider>(context, listen: false).practice = false;
-      // }
+    // if(practiceId == null){
+    //   Provider.of<TestProvider>(context, listen: false).practice = false;
+    // }
     await Provider.of<TestProvider>(context, listen: false)
-        .ftestStart(testEntity: testEntity,practiceId: practiceId,)
+        .ftestStart(
+      testEntity: testEntity,
+      practiceId: practiceId,
+    )
         .then((_) async {
-        if(Provider.of<TestProvider>(context, listen: false).testStart.poorPerformanceMessage == null){
-          await gotoQuestionTypes(
-            context,
-            Provider.of<TestProvider>(context, listen: false)
+      if (Provider.of<TestProvider>(context, listen: false)
+              .testStart
+              .poorPerformanceMessage ==
+          null) {
+        await gotoQuestionTypes(
+          context,
+          Provider.of<TestProvider>(context, listen: false)
+              .testStart
+              .question!
+              .first
+              .format!,
+        );
+      } else {
+        showErrorToast(Provider.of<TestProvider>(context, listen: false)
                 .testStart
-                .question!
-                .first
-                .format!,
-          );
-        }else{
-          showErrorToast(Provider.of<TestProvider>(context, listen: false).testStart.poorPerformanceMessage ?? "");
-        }
+                .poorPerformanceMessage ??
+            '');
+      }
     }).onError((error, stackTrace) async {
       await handleError(error);
     });
   }
 }
 
-Future<void> gotoTestSummary(BuildContext context, int userTestId,bool isShowResume) async {
+Future<void> gotoTestSummary(
+    BuildContext context, int userTestId, bool isShowResume) async {
   await Provider.of<TestProvider>(context, listen: false)
       .ftestSummary(userTestId)
       .then((_) async {
@@ -357,7 +374,12 @@ Future<void> gotoTestSummary(BuildContext context, int userTestId,bool isShowRes
     //   '/testSummary',
     //   (route) => false,
     // );
-    await Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => TestSummary(isShowResumeButton: isShowResume),), (route) => false);
+    await Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => TestSummary(isShowResumeButton: isShowResume),
+        ),
+        (route) => false);
   }).onError((error, stackTrace) async {
     await handleError(error);
   });
@@ -368,7 +390,7 @@ Future<void> gotoResults(BuildContext context, int? idTest, int? index) async {
       .ftestResults(idTest)
       .then((_) async {
     if (kDebugMode) {
-      print("AA-2");
+      print('AA-2');
       print(idTest);
       // print(provider.fromCustomTest);
     }
@@ -418,7 +440,8 @@ Future<void> gotoNotification(BuildContext context) async {
   });
 }
 
-Future<void> gotoSprintHistory(BuildContext context, int userTestId,String testName) async {
+Future<void> gotoSprintHistory(
+    BuildContext context, int userTestId, String testName) async {
   await Provider.of<TestProvider>(context, listen: false)
       .fsprintHistory(userTestId)
       .then((_) async {
@@ -429,7 +452,18 @@ Future<void> gotoSprintHistory(BuildContext context, int userTestId,String testN
     //   context,
     //   '/sprintHistory',
     // );
-    Navigator.push(context, MaterialPageRoute(builder: (context) => SprintHome(testName: testName.isEmpty ? Provider.of<TestProvider>(context, listen: false).sprintHistoryEntity.chapterName ?? "" : testName),));
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SprintHome(
+            testName: testName.isEmpty
+                ? Provider.of<TestProvider>(context, listen: false)
+                        .sprintHistoryEntity
+                        .chapterName ??
+                    ''
+                : testName),
+      ),
+    );
   }).onError((error, stackTrace) async {
     await handleError(error);
   });
@@ -465,12 +499,17 @@ Future<void> gotoTestHistory(BuildContext context) async {
   Provider.of<OtherProvider>(context, listen: false)
       .routeNames
       .add('/testHistory');
-   Navigator.of(context).pushNamed(
+  unawaited(Navigator.of(context).pushNamed(
     '/testHistory',
-  );
-  showDialog(context: context, builder: (context) {
-    return Center(child: CircularProgressIndicator(),);
-  },);
+  ));
+  unawaited(showDialog(
+    context: context,
+    builder: (context) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    },
+  ));
   await Provider.of<TestProvider>(context, listen: false)
       .ftestHistory(
     null,
@@ -480,18 +519,22 @@ Future<void> gotoTestHistory(BuildContext context) async {
     null,
   )
       .then((_) async {
-   Navigator.pop(context);
+    Navigator.pop(context);
   }).onError((error, stackTrace) async {
     await handleError(error);
   });
 }
 
-Future<void> gotoReports(BuildContext context,bool isHome,
+Future<void> gotoReports(BuildContext context, bool isHome,
     {String time = 'This week'}) async {
-
-   showDialog(context: context, builder: (context) {
-  return Center(child: CircularProgressIndicator(),);
-},);
+  unawaited(showDialog(
+    context: context,
+    builder: (context) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    },
+  ));
   await Provider.of<TestProvider>(context, listen: false)
       .freports(time)
       .then((_) async {
@@ -500,7 +543,7 @@ Future<void> gotoReports(BuildContext context,bool isHome,
         .add('/reports');
     if (time == 'This week') {
       Navigator.pop(context);
-    await  Navigator.pushNamed(
+      await Navigator.pushNamed(
         context,
         '/reports',
         // (route) => false,
@@ -563,7 +606,7 @@ void goBack(BuildContext context) {
       loopsIndex > testHomeIndex &&
       loopsIndex > analyticsIndex) {
     if (kDebugMode) {
-      print("ISSUEE");
+      print('ISSUEE');
     }
     gotoLoops(context);
   } else {
