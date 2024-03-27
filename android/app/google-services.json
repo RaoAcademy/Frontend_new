@@ -14,38 +14,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "461953966814-472k5ddiq5pltm498ud8too4e5qg7n9u.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.app.raoacademy",
-            "certificate_hash": "4aeb8904ea573607bf86b3a6b8bf77a5e14123e7"
-          }
-        },
-        {
-          "client_id": "461953966814-59740p9mihtl7mrr8tbmav5pr8mn7jp8.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.app.raoacademy",
-            "certificate_hash": "631ac1961e20254ee872b137e0003224a81ca6f4"
-          }
-        },
-        {
-          "client_id": "461953966814-kcm043k5f6gq3qhjevahlja0v9iouilg.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.app.raoacademy",
-            "certificate_hash": "92cae89004b62091ce5def36b5d1ccf51c0d00fa"
-          }
-        },
-        {
-          "client_id": "461953966814-nphl2k0f611v7banf6apvo5fsmbeuruj.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.app.raoacademy",
-            "certificate_hash": "c92b06e7c4ca4a7b81ba45952b6791b1ebd4f51a"
-          }
-        },
-        {
           "client_id": "461953966814-d6v074ienhebj51voc2vf3vvhp4tr0uo.apps.googleusercontent.com",
           "client_type": 3
         }

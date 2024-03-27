@@ -4,9 +4,11 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+// ignore_for_file: unnecessary_lambdas
+// ignore_for_file: lines_longer_than_80_chars
+// coverage:ignore-file
+
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:get_it/get_it.dart' as _i1;
-import 'package:injectable/injectable.dart' as _i2;
 import 'package:EdTestz/application/auth/auth_provider.dart' as _i15;
 import 'package:EdTestz/application/firebase/firebase_notification_provider.dart'
     as _i6;
@@ -22,14 +24,13 @@ import 'package:EdTestz/domain/payment/payment_repo.dart' as _i10;
 import 'package:EdTestz/domain/test_x/test_repo.dart' as _i13;
 import 'package:EdTestz/infrastructure/auth/imp_auth_repo.dart' as _i5;
 import 'package:EdTestz/infrastructure/home/imp_home_repo.dart' as _i8;
-import 'package:EdTestz/infrastructure/payment/imp_payment_repo.dart'
-    as _i11;
+import 'package:EdTestz/infrastructure/payment/imp_payment_repo.dart' as _i11;
 import 'package:EdTestz/infrastructure/test_x/imp_test_repo.dart' as _i14;
+import 'package:get_it/get_it.dart' as _i1;
+import 'package:injectable/injectable.dart' as _i2;
 
-/// ignore_for_file: unnecessary_lambdas
-/// ignore_for_file: lines_longer_than_80_chars
 extension GetItInjectableX on _i1.GetIt {
-  /// initializes the registration of main-scope dependencies inside of [GetIt]
+  // initializes the registration of main-scope dependencies inside of GetIt
   _i1.GetIt init({
     String? environment,
     _i2.EnvironmentFilter? environmentFilter,
@@ -48,7 +49,8 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i10.PaymentsRepo>(() => _i11.ImpPaymentRepo());
     gh.factory<_i12.SplashProvider>(() => _i12.SplashProvider());
     gh.lazySingleton<_i13.TestRepo>(() => _i14.ImpTestRepo());
-    gh.factory<_i15.AuthAppProvider>(() => _i15.AuthAppProvider(gh<_i4.AuthRepo>()));
+    gh.factory<_i15.AuthAppProvider>(
+        () => _i15.AuthAppProvider(gh<_i4.AuthRepo>()));
     gh.factory<_i16.HomeProvider>(() => _i16.HomeProvider(gh<_i7.HomeRepo>()));
     gh.factory<_i17.PaymentProvider>(
         () => _i17.PaymentProvider(gh<_i10.PaymentsRepo>()));

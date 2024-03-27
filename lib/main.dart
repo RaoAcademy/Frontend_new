@@ -54,13 +54,25 @@ import 'package:injectable/injectable.dart';
 import 'package:provider/provider.dart';
 import 'package:upgrader/upgrader.dart';
 
+import 'firebase_options.dart';
+
 ConnectivityResult connectivityResult = ConnectivityResult.none;
 bool isEnterHomeScreen = false;
 
 Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+    // options: const FirebaseOptions(
+    //   appId: '1:461953966814:android:d92c01cb2f95084aebd84f',
+    //   apiKey: 'AIzaSyDIuFEFN8KzSBpHe-6gPeB82xPUVTiVgRA',
+    //   messagingSenderId: 'your_sender_id',
+    //   projectId: 'rao-academy-63914',
+    //   // Set the locale
+    //   // locale: 'en', // Or any other locale code
+    // ),
+  );
   connectivityResult = await Connectivity().checkConnectivity();
   await Upgrader.clearSavedSettings();
   configureInjection(Environment.dev);
